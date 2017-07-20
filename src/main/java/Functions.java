@@ -79,7 +79,7 @@ public class Functions {
     private static String str1 = "abcdefghijklmnopqrstuvwxyzhjgdisjwlsldyquwaajzueya";
     private static String str2 = "124153647586908967341729304";
 
-    private static String getRandomString(int length){
+    public static String getRandomString(int length){
         StringBuffer sb = new StringBuffer();
         Random r = new Random();
         if (length==6)

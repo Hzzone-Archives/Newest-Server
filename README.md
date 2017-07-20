@@ -38,3 +38,50 @@ if user does not exists
 ```
 
 #### register
+First post data to ```"192.168.21.100:4567/register-1"```
+```json
+{
+  "user_id": "1141408077@qq.com",
+  "user_name": "Hzzone",
+  "password": "1111"
+}
+```
+if user exists
+```json
+{
+    "isOk":false,
+    "msg":"用户已存在"
+}
+```
+if not exists, send verification email to user's email address, and returns
+```json
+{
+    "isOk":true,
+    "msg":"349952"
+}
+```
+
+repeatedly post same data to ```"192.168.21.100:4567/register-2"```, returns
+```json
+{
+    "isOk":true,
+    "msg":"注册成功",
+    "user":{
+        "user_id":"1141408077@qq.com",
+        "user_name":"Hzzone",
+        "password":"1111",
+        "token":"eevpxwfxdlaaldyymsggqasapawydk"
+    }
+}
+```
+```json
+{
+    "isOk":true,
+    "user":{
+        "user_id":"1141408077@qq.com",
+        "user_name":"Hzzone",
+        "password":"1111",
+        "token":"nwvwyihjyjjabdiakogqdewdjadlaz"
+    }
+}
+```
