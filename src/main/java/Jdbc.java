@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  *
@@ -21,9 +22,13 @@ public class Jdbc {
         //2.修改记录
 //        jdbc.edit("update public.user set username='林佳', password='123456' where id='111111'");
         //3.查询结果集
-//        jdbc.querydata("select * from public.user");
+        ResultSet rs = jdbc.querydata("select * from public.user");
+
+        List<User> users = Functions.getUserList(rs);
+        System.out.println(users.size());
+
         //4.删除记录
-        jdbc.delete("delete from public.user where id='111111'");
+//        jdbc.delete("delete from public.user where id='111111'");
     }
 
     public Jdbc(){
@@ -114,33 +119,25 @@ public class Jdbc {
 
     /**
      * 查询记录集合
-     *
+     * 返回的是一个ResultSet, 包含查询到的行
      */
-    public void querydata(String sql){
+    public ResultSet querydata(String sql){
         //4.执行操作数据库语句
 //        String sql="select * from user";
-
+        ResultSet rs = null;
         try {
             // executeQUery:执行查询数据库语句时，要操作的方法
-            ResultSet rs=stmt.executeQuery(sql);
             /**
              * ResultSet:查询结果集
              * 是一个集合，那样就会遍历结果集
              * rs.next():如果读取到结果集
              */
-            String uname = null;
-            String uword = null;
-            String uid = null;
-            while(rs.next()){
-                uid=rs.getString(1);
-                uname=rs.getString(2);
-                uword=rs.getString(3);
-                System.out.println("用户ID: "+uid+"\t"+"用户名: "+uname+"\t"+"密码: "+uword);
-            }
-
+            rs=stmt.executeQuery(sql);
+            System.out.println("rs: "+rs);
         } catch (SQLException e) {
-
             e.printStackTrace();
+        } finally {
+            return rs;
         }
 
     }

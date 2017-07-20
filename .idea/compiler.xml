@@ -9,7 +9,7 @@
         <module name="News" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="News" target="1.8" />
     </bytecodeTargetLevel>
   </component>
