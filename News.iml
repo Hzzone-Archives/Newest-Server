@@ -19,7 +19,6 @@
     <orderEntry type="library" name="javax.mail-1.4.4" level="project" />
     <orderEntry type="library" name="gson-2.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.sparkjava:spark-core:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.13" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:9.4.4.v20170414" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.4.4.v20170414" level="project" />
@@ -53,5 +52,11 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-client:9.4.5.v20170502" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.4.5.v20170502" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.4.5.v20170502" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.jdbi:jdbi:2.78" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: postgresql:postgresql:8.2-504.jdbc4" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
   </component>
 </module>
