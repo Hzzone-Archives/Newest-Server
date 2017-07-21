@@ -1,7 +1,9 @@
+import com.google.gson.Gson;
 import jdk.nashorn.internal.scripts.JD;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
+import sun.security.jgss.GSSCaller;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -24,11 +26,17 @@ public class Main {
             log(user_id + " " + password);
             if(password == null || user_id == null)
                 return "empty value";
-            User user = new User(user_id, password);
+            User user = new User();
+            user.setPassword(password);
+            user.setUser_id(user_id);
             if(user.isExists()) {
                 user = user.getUser();
-                if (password.equals(user.getPassword()))
-                    return "{\"isOk\":true, \"msg\":\"登录成功\",\"user\":"+user.toString()+"}";
+                if (password.equals(user.getPassword())){
+                    response.cookie("user_id", user.getUser_id());
+                    response.cookie("password", user.getPassword());
+                    Gson gson = new Gson();
+                    return "{\"isOk\":true, \"msg\":\"登录成功\",\"user\":"+gson.toJson(user)+"}";
+                }
                 else return "{\"isOk\":false, \"msg\":\"密码错误\"}";
             }
             else
@@ -45,8 +53,9 @@ public class Main {
             Functions.log(user_id+ "\t"+user_name + "\t"+password);
             if (user_id==null||user_name==null||password==null)
                 return "empty value";
-            User user = new User(user_id, password);
-            user.setUser_name(user_name);
+            User user = new User();
+            user.setUser_id(user_id);
+            user.setPassword(password);
             String code = null;
             if (user.isExists()){
                 user = user.getUser();
@@ -70,7 +79,9 @@ public class Main {
             Functions.log(user_id+ "\t"+user_name + "\t"+password);
             if (user_id==null||user_name==null||password==null)
                 return "empty value";
-            User user = new User(user_id, password);
+            User user = new User();
+            user.setPassword(password);
+            user.setUser_id(user_id);
             user.setUser_name(user_name);
             Jdbc jdbc = new Jdbc();
             while (true) {
@@ -90,6 +101,12 @@ public class Main {
             jdbc.save(sql);
             return String.format("{\"isOk\":true, \"msg\":\"%s\",\"user\":%s}", "注册成功", user.toString());
         })));
+
+        get("/post", ((((request, response) -> {
+
+            return "hello world";
+        }))));
+
     }
 
     private static void log(String s){

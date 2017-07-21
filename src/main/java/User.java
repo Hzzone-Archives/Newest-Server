@@ -15,18 +15,15 @@ public class User {
     private String password = null;
     private String token = null;
 
-
-    public User(String user_id, String password) {
-        this.user_id = user_id;
-        this.password = password;
+    public String getPic() {
+        return pic;
     }
 
-    public User(String user_id, String user_name, String password, String token) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.password = password;
-        this.token = token;
+    public void setPic(String pic) {
+        this.pic = pic;
     }
+
+    private String pic = null;
 
     /**
      * 获得完整的用户信息

@@ -85,3 +85,36 @@ repeatedly post same data to ```"192.168.21.100:4567/register-2"```, returns
     }
 }
 ```
+
+#### Make a post
+post data to ```"192.168.21.100:4567/post"```,
+```json
+{
+  "title": "This is a test",
+  "Content": "Test content",
+  "user_id": "zhizhonghwang@gmail.com"
+}
+```
+returns,
+```json
+{
+  "isOk": true,
+  "msg": "发表成功",
+  "post": {
+      "title": "This is a test",
+      "Content": "Test content",
+      "user_id": "zhizhonghwang@gmail.com",
+      "post_id": "xxxxxxxxxx",
+      "time": "Jul 21, 2017 2:19:06 PM"
+  }
+}
+```
+else returns,
+```json
+{
+  "isOk": false,
+  "msg": "发表失败"
+}
+```
+
+#### Get recently posts
