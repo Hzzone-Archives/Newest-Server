@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1806950e-c6c4-4d9c-a2a9-9499d4018304" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Functions.java" afterPath="$PROJECT_DIR$/src/main/java/Functions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NewsCatch.java" afterPath="$PROJECT_DIR$/src/main/java/NewsCatch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Post.java" afterPath="$PROJECT_DIR$/src/main/java/Post.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/User.java" afterPath="$PROJECT_DIR$/src/main/java/User.java" />
-    </list>
+    <list default="true" id="1806950e-c6c4-4d9c-a2a9-9499d4018304" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,14 +20,16 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2470">
-              <caret line="202" column="23" lean-forward="true" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+            <state relative-caret-position="243">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#443#510#0" expanded="false" />
                 <element signature="e#538#1526#0" expanded="false" />
                 <element signature="e#1606#2564#0" expanded="false" />
                 <element signature="e#2645#4096#0" expanded="false" />
+                <element signature="e#5398#6988#0" expanded="false" />
+                <element signature="e#7017#8602#0" expanded="false" />
                 <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
               </folding>
             </state>
@@ -822,12 +817,12 @@
       <workItem from="1500475262049" duration="25046000" />
       <workItem from="1500564149422" duration="2423000" />
       <workItem from="1500598801575" duration="11399000" />
-      <workItem from="1500628151251" duration="5571000" />
+      <workItem from="1500628151251" duration="5948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50211000" />
+    <option name="totallyTimeSpent" value="50588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -901,6 +896,8 @@
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1018,6 +1015,8 @@
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1086,6 +1085,8 @@
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1142,6 +1143,8 @@
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1173,6 +1176,8 @@
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
@@ -1312,14 +1317,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2470">
-          <caret line="202" column="23" lean-forward="true" selection-start-line="202" selection-start-column="23" selection-end-line="202" selection-end-column="23" />
+        <state relative-caret-position="243">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#443#510#0" expanded="false" />
             <element signature="e#538#1526#0" expanded="false" />
             <element signature="e#1606#2564#0" expanded="false" />
             <element signature="e#2645#4096#0" expanded="false" />
+            <element signature="e#5398#6988#0" expanded="false" />
+            <element signature="e#7017#8602#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
           </folding>
         </state>
