@@ -10,6 +10,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import com.sun.mail.util.MailSSLSocketFactory;
+import com.sun.org.apache.regexp.internal.RE;
+import javafx.geometry.Pos;
 
 /**
  * Created by Hzzone on 2017/7/20.
@@ -20,8 +22,7 @@ public class Functions {
     }
 
     public static List<User> getUserList(ResultSet rs){
-        List<User> users = new ArrayList<User>() {
-        };
+        List<User> users = new ArrayList<User>();
         try {
             while (rs.next()){
                 User user = new User();
@@ -38,6 +39,7 @@ public class Functions {
             return users;
         }
     }
+
 
     public static void sendEmail(String title, String context, String _to){
         Properties prop = new Properties();

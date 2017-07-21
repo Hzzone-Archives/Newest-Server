@@ -118,3 +118,15 @@ else returns,
 ```
 
 #### Get recently posts
+get from ```"192.168.21.100:4567/post"```,
+```json
+{
+  "isOk": true,
+  "msg": "获取成功",
+  "posts:": [
+  {
+    
+  }
+  ]
+}
+```

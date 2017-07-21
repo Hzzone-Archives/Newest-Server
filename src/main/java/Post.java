@@ -14,6 +14,26 @@ public class Post {
     private String title;
     private String content;
     private Date time;
+    private List<Comment> comments = null;
+    private String author_pic;
+
+    public String getAuthor_pic() {
+        return author_pic;
+    }
+
+    public void setAuthor_pic(String author_pic) {
+        this.author_pic = author_pic;
+    }
+
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
 
     public static Post getPost(String post_id, String author_name, String author_id, String title, String content, Date time){
         Post post = new Post();
@@ -73,7 +93,7 @@ public class Post {
         this.time = time;
     }
 
-    public static void main(String[] args){
+//    public static void main(String[] args){
 //        Date date = new Date();
 //        System.out.println(date.toString());
 //        Post post1 = Post.getPost("aa", "aaa", "aaa", "aaaa", "aaa", new Date());
@@ -85,6 +105,6 @@ public class Post {
 //        String s = gson.toJson(posts);
 //        System.out.println(s);
 
-    }
+//    }
 
 }
