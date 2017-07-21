@@ -121,12 +121,39 @@ else returns,
 get from ```"192.168.21.100:4567/post"```,
 ```json
 {
-  "isOk": true,
-  "msg": "获取成功",
-  "posts:": [
-  {
-    
-  }
-  ]
+    "isOk":true,
+    "msg":"获取成功",
+    "posts:":[
+        {
+            "post_id":"12128654726145",
+            "author_name":"Zhizhong",
+            "author_id":"1141408077@qq.com",
+            "title":"This is a test",
+            "content":"test",
+            "time":"七月 21, 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "liked":0
+        },
+        {
+            "post_id":"ijejlglmslisdaybdgujhcjusdnwoe",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"This is a test",
+            "content":"test ",
+            "time":"七月 21, 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "liked":0
+        },
+        {
+            "post_id":"121286547261451",
+            "author_name":"Zhizhong",
+            "author_id":"1141408077@qq.com",
+            "title":"This is a test",
+            "content":"test",
+            "time":"七月 19, 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "liked":0
+        }
+    ]
 }
 ```

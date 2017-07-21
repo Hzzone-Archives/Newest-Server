@@ -112,10 +112,29 @@ public class Main {
         get("/post", ((((request, response) -> {
             int num = 3;
             Jdbc jdbc = new Jdbc();
-            String sql = "";
-            jdbc.querydata(sql);
-
-            return "hello world";
+            String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
+            ResultSet rs = jdbc.querydata(sql);
+            List<Post> posts = new ArrayList<>();
+            int i = 0;
+            Gson gson = new Gson();
+            while (rs.next() && i<num){
+                Post post = new Post();
+                post.setContent(rs.getString("content"));
+                post.setPost_id(rs.getString("post_id"));
+                post.setTime(rs.getDate("time"));
+                post.setTitle(rs.getString("title"));
+                post.setAuthor_name(rs.getString("user_name"));
+                post.setAuthor_id(rs.getString("user_id"));
+                post.setAuthor_pic(rs.getString("pic"));
+                post.setLiked(rs.getInt("liked"));
+                posts.add(post);
+                i++;
+            }
+            System.out.println("h3");
+            return String.format("{"+
+                    "\"isOk\": true,"+
+            "\"msg\": \"获取成功\","+
+                    "\"posts:\": %s}", gson.toJson(posts)).toString();
         }))));
 
 

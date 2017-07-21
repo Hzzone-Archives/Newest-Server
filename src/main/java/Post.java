@@ -17,6 +17,16 @@ public class Post {
     private List<Comment> comments = null;
     private String author_pic;
 
+    public int getLiked() {
+        return liked;
+    }
+
+    public void setLiked(int liked) {
+        this.liked = liked;
+    }
+
+    private int liked;
+
     public String getAuthor_pic() {
         return author_pic;
     }
