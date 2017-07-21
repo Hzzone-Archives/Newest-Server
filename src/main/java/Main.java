@@ -1,10 +1,7 @@
 import com.google.gson.Gson;
-import javafx.geometry.Pos;
-import jdk.nashorn.internal.scripts.JD;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
-import sun.security.jgss.GSSCaller;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -130,13 +127,47 @@ public class Main {
                 posts.add(post);
                 i++;
             }
-            System.out.println("h3");
             return String.format("{"+
                     "\"isOk\": true,"+
             "\"msg\": \"获取成功\","+
                     "\"posts:\": %s}", gson.toJson(posts)).toString();
         }))));
 
+        post("/get-new-post", (request, response) -> {
+            String post_id = request.queryParams("post_id");
+            int num = 3;
+            Jdbc jdbc = new Jdbc();
+            String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
+            ResultSet rs = jdbc.querydata(sql);
+            List<Post> posts = new ArrayList<>();
+            int i = 0;
+            Gson gson = new Gson();
+            while (rs.next()){
+                String cur_post_id = rs.getString("post_id");
+                if (cur_post_id.equals(post_id))
+                    break;
+            }
+            if (!rs.next())
+                return "{\"isOk\":false, \"msg\":\"已经没有更多了\"}";
+            while (rs.next()&&i<num) {
+                Post post = new Post();
+                post.setContent(rs.getString("content"));
+                post.setPost_id(rs.getString("post_id"));
+                post.setTime(rs.getDate("time"));
+                post.setTitle(rs.getString("title"));
+                post.setAuthor_name(rs.getString("user_name"));
+                post.setAuthor_id(rs.getString("user_id"));
+                post.setAuthor_pic(rs.getString("pic"));
+                post.setLiked(rs.getInt("liked"));
+                posts.add(post);
+                System.out.println(gson.toJson(post));
+                i++;
+            }
+            return String.format("{"+
+                    "\"isOk\": true,"+
+                    "\"msg\": \"获取成功\","+
+                    "\"posts:\": %s}", gson.toJson(posts)).toString();
+        });
 
         post("/post", ((((request, response) -> {
             String title = request.queryParams("title");

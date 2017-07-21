@@ -10,8 +10,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import com.sun.mail.util.MailSSLSocketFactory;
-import com.sun.org.apache.regexp.internal.RE;
-import javafx.geometry.Pos;
 
 /**
  * Created by Hzzone on 2017/7/20.

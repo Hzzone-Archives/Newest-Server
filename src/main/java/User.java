@@ -1,8 +1,4 @@
-import com.sun.org.apache.regexp.internal.RE;
-import org.postgresql.util.PSQLException;
-
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
