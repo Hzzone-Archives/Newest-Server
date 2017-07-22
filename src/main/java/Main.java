@@ -1,4 +1,6 @@
 import com.google.gson.Gson;
+import jdk.nashorn.internal.scripts.JD;
+import org.apache.regexp.RE;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
@@ -130,7 +132,7 @@ public class Main {
             return String.format("{"+
                     "\"isOk\": true,"+
             "\"msg\": \"获取成功\","+
-                    "\"posts:\": %s}", gson.toJson(posts)).toString();
+                    "\"posts\": %s}", gson.toJson(posts)).toString();
         }))));
 
         post("/get-new-post", (request, response) -> {
@@ -147,8 +149,8 @@ public class Main {
                 if (cur_post_id.equals(post_id))
                     break;
             }
-            if (!rs.next())
-                return "{\"isOk\":false, \"msg\":\"已经没有更多了\"}";
+//            if (!rs.next())
+//                return "{\"isOk\":false, \"msg\":\"已经没有更多了\"}";
             while (rs.next()&&i<num) {
                 Post post = new Post();
                 post.setContent(rs.getString("content"));
@@ -163,10 +165,10 @@ public class Main {
                 System.out.println(gson.toJson(post));
                 i++;
             }
-            return String.format("{"+
+                return String.format("{"+
                     "\"isOk\": true,"+
                     "\"msg\": \"获取成功\","+
-                    "\"posts:\": %s}", gson.toJson(posts)).toString();
+                    "\"posts\": %s}", gson.toJson(posts)).toString();
         });
 
         post("/post", ((((request, response) -> {
@@ -204,6 +206,64 @@ public class Main {
             jdbc.save(sql);
             return "{\"isOk\":true, \"msg\":\"发表成功\", \"post\":"+gson.toJson(post)+"}";
         }))));
+
+        /**
+         *获取帖子的详细内容
+         */
+        post("/post-details", (request, response) -> {
+            String post_id = request.queryParams("post_id");
+            String sql = String.format("SELECT * FROM public.comment AS c WHERE c.post_id='%s'", post_id).toString();
+            Jdbc jdbc = new Jdbc();
+            ResultSet rs = jdbc.querydata(sql);
+            List<Comment> comments = new ArrayList<>();
+            Gson gson = new Gson();
+            while (rs.next()){
+                Comment comment = new Comment();
+                comment.setPost_id(post_id);
+                comment.setContent(rs.getString("content"));
+                comment.setDate(rs.getDate("time"));
+                String from_id = rs.getString("from_id");
+                comment.setFrom_id(from_id);
+                String to_id = rs.getString("to_id");
+                if (to_id!=null) {
+                    comment.setTo_id(to_id);
+                    sql = String.format("select * from public.user where user_id='%s'", to_id);
+                    Jdbc jdbc1 = new Jdbc();
+                    ResultSet rs1 = jdbc1.querydata(sql);
+                    while (rs1.next()) {
+                        comment.setTo_name(rs1.getString("to_name"));
+                        comment.setTo_pic(rs1.getString("to_pic"));
+                    }
+                }
+                sql = String.format("select * from public.user where user_id='%s'", from_id);
+                Jdbc jdbc2 = new Jdbc();
+                ResultSet rs2 = jdbc2.querydata(sql);
+                while (rs2.next()) {
+                    comment.setFrom_name(rs2.getString("user_name"));
+                    comment.setFrom_pic(rs2.getString("pic"));
+                }
+                comments.add(comment);
+                System.out.println(gson.toJson(comment));
+            }
+            Post post = new Post();
+            post.setComments(comments);
+            sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post WHERE post_id='%s' ORDER BY time DESC", post_id).toString();
+            Jdbc jdbc3 = new Jdbc();
+            ResultSet rs3 = jdbc3.querydata(sql);
+            while (rs3.next()){
+                post.setContent(rs3.getString("content"));
+                post.setPost_id(rs3.getString("post_id"));
+                post.setTime(rs3.getDate("time"));
+                post.setTitle(rs3.getString("title"));
+                post.setAuthor_id(rs3.getString("user_id"));
+                post.setLiked(rs3.getInt("liked"));
+                post.setAuthor_name(rs3.getString("user_name"));
+                post.setAuthor_pic(rs3.getString("pic"));
+                post.setAuthor_id(rs3.getString("user_id"));
+            }
+            System.out.println(gson.toJson(post));
+            return String.format("{\"isOk\": true, \"msg\": \"返回成功\", \"PostAndComments\": %s}", gson.toJson(post)).toString();
+        });
 
     }
 

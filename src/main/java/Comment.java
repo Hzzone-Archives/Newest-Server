@@ -4,15 +4,48 @@ import java.util.Date;
  * Created by Hzzone on 2017/7/21.
  */
 public class Comment {
-    private String post_id;
-    private String from_id;
-    private String to_id;
-    private String content;
-    private Date date;
-    private String from_name;
-    private String from_pic;
-    private String to_name;
-    private String to_pic;
+    private String post_id = null;
+    private String from_id = null;
+    private String to_id = null ;
+    private String content = null;
+    private Date date = null;
+
+    public String getFrom_name() {
+        return from_name;
+    }
+
+    public void setFrom_name(String from_name) {
+        this.from_name = from_name;
+    }
+
+    public String getFrom_pic() {
+        return from_pic;
+    }
+
+    public void setFrom_pic(String from_pic) {
+        this.from_pic = from_pic;
+    }
+
+    public String getTo_name() {
+        return to_name;
+    }
+
+    public void setTo_name(String to_name) {
+        this.to_name = to_name;
+    }
+
+    public String getTo_pic() {
+        return to_pic;
+    }
+
+    public void setTo_pic(String to_pic) {
+        this.to_pic = to_pic;
+    }
+
+    private String from_name = null;
+    private String from_pic = null;
+    private String to_name = null;
+    private String to_pic = null ;
 
     public String getPost_id() {
         return post_id;

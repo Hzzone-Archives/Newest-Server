@@ -189,3 +189,47 @@ if there is no more post, it will return:
     "msg":"已经没有更多了"
 }
 ```
+
+#### Get the post details
+post data to ```"192.168.21.100:4567/post-details"```
+```json
+{
+  "post_id": "11"
+}
+```
+returns:
+```json
+{
+    "isOk": true,
+    "msg": "返回成功",
+    "PostAndComments": {
+        "post_id": "11",
+        "author_name": "Hzzone",
+        "author_id": "zhizhonghwang@gmail.com",
+        "title": "This is a test",
+        "content": "test",
+        "time": "七月 22, 2017",
+        "comments": [
+            {
+                "post_id": "11",
+                "from_id": "zhizhonghwang@gmail.com",
+                "content": "test test",
+                "date": "七月 27, 2017",
+                "from_name": "Hzzone",
+                "from_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+            },
+            {
+                "post_id": "11",
+                "from_id": "zhizhonghwang@gmail.com",
+                "content": "mdzz",
+                "date": "七月 24, 2017",
+                "from_name": "Hzzone",
+                "from_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+            }
+        ],
+        "author_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+        "liked": 0
+    }
+}
+```
+
