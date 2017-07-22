@@ -24,11 +24,11 @@ public class Functions {
         try {
             while (rs.next()){
                 User user = new User();
-                user.setUser_id(rs.getString(1));
-                user.setUser_name(rs.getString(2));
-                user.setPassword(rs.getString(3));
-                user.setToken(rs.getString(4));
-                user.setPic(rs.getString(5));
+                user.setUser_id(rs.getString("user_id"));
+                user.setUser_name(rs.getString("user_name"));
+                user.setPassword(rs.getString("password"));
+                user.setToken(rs.getString("token"));
+                user.setPic(rs.getString("pic"));
                 users.add(user);
             }
         } catch (SQLException e) {

@@ -121,38 +121,41 @@ else returns,
 get from ```"192.168.21.100:4567/post"```,
 ```json
 {
-    "isOk":true,
-    "msg":"获取成功",
-    "posts:":[
+    "isOk": true,
+    "msg": "获取成功",
+    "posts": [
         {
-            "post_id":"12128654726145",
-            "author_name":"Zhizhong",
-            "author_id":"1141408077@qq.com",
-            "title":"This is a test",
-            "content":"test",
-            "time":"七月 21, 2017",
-            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
-            "liked":0
+            "post_id": "11",
+            "author_name": "Hzzone",
+            "author_id": "zhizhonghwang@gmail.com",
+            "title": "This is a test",
+            "content": "test",
+            "time": "七月 22, 2017",
+            "author_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "isLiked": false,
+            "liked": 1
         },
         {
-            "post_id":"ijejlglmslisdaybdgujhcjusdnwoe",
-            "author_name":"Hzzone",
-            "author_id":"zhizhonghwang@gmail.com",
-            "title":"This is a test",
-            "content":"test ",
-            "time":"七月 21, 2017",
-            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
-            "liked":0
+            "post_id": "22",
+            "author_name": "Hzzone",
+            "author_id": "zhizhonghwang@gmail.com",
+            "title": "This is a test",
+            "content": "test ",
+            "time": "七月 21, 2017",
+            "author_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "isLiked": false,
+            "liked": 0
         },
         {
-            "post_id":"121286547261451",
-            "author_name":"Zhizhong",
-            "author_id":"1141408077@qq.com",
-            "title":"This is a test",
-            "content":"test",
-            "time":"七月 19, 2017",
-            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
-            "liked":0
+            "post_id": "33",
+            "author_name": "Zhizhong",
+            "author_id": "1141408077@qq.com",
+            "title": "This is a test",
+            "content": "test",
+            "time": "七月 20, 2017",
+            "author_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "isLiked": false,
+            "liked": 0
         }
     ]
 }
@@ -177,6 +180,7 @@ this will also return the next recent 3 posts, returns as:
             "content":"test",
             "time":"七月 19, 2017",
             "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "isLiked": false,
             "liked":0
         }
     ]
@@ -232,4 +236,29 @@ returns:
     }
 }
 ```
+
+#### User liked 
+post data to ```"192.168.21.100:4567/like"```
+```json
+{
+  "post_id": "11",
+  "user_id": "zhizhonghwang@gmail.com",
+  "liked": "-+1"
+}
+```
+returns
+```json
+{
+    "isOk": true,
+    "msg": "取消点赞"
+}
+```
+else
+```json
+{
+    "isOk": true,
+    "msg": "点赞"
+}
+```
+
 

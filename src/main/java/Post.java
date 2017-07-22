@@ -1,3 +1,6 @@
+import javax.swing.text.Style;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +16,28 @@ public class Post {
     private Date time;
     private List<Comment> comments = null;
     private String author_pic;
+
+    public void setLiked(Boolean liked) {
+        isLiked = liked;
+    }
+
+    private Boolean isLiked = Boolean.FALSE;
+
+    public Boolean isLiked(String user_id){
+        Jdbc jdbc = new Jdbc();
+        String sql = String.format("SELECT * FROM public.liked WHERE user_id='%s' AND post_id='%s'", user_id, post_id);
+        ResultSet rs = jdbc.querydata(sql);
+        int i = 0;
+        try {
+            while (rs.next())
+                i++;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        if (i==0)
+            return Boolean.FALSE;
+        return Boolean.TRUE;
+    }
 
 
     public int getLiked() {

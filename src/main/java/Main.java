@@ -38,7 +38,7 @@ public class Main {
                     response.cookie("user_id", user.getUser_id());
                     response.cookie("password", user.getPassword());
                     Gson gson = new Gson();
-                    return "{\"isOk\":true, \"msg\":\"登录成功\",\"user\":"+gson.toJson(user)+"}";
+                    return String.format("{\"isOk\":true, \"msg\":\"登录成功\",\"user\":%s}", gson.toJson(user));
                 }
                 else return "{\"isOk\":false, \"msg\":\"密码错误\"}";
             }
@@ -108,7 +108,8 @@ public class Main {
         /**
          * 获得帖子的列表
          */
-        get("/post", ((((request, response) -> {
+        post("/post", ((request, response) -> {
+            String user_id =request.queryParams("user_id");
             int num = 3;
             Jdbc jdbc = new Jdbc();
             String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
@@ -126,6 +127,7 @@ public class Main {
                 post.setAuthor_id(rs.getString("user_id"));
                 post.setAuthor_pic(rs.getString("pic"));
                 post.setLiked(rs.getInt("liked"));
+                post.setLiked(post.isLiked(user_id));
                 posts.add(post);
                 i++;
             }
@@ -133,10 +135,11 @@ public class Main {
                     "\"isOk\": true,"+
             "\"msg\": \"获取成功\","+
                     "\"posts\": %s}", gson.toJson(posts)).toString();
-        }))));
+        }));
 
         post("/get-new-post", (request, response) -> {
             String post_id = request.queryParams("post_id");
+            String user_id = request.queryParams("user_id");
             int num = 3;
             Jdbc jdbc = new Jdbc();
             String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
@@ -161,6 +164,7 @@ public class Main {
                 post.setAuthor_id(rs.getString("user_id"));
                 post.setAuthor_pic(rs.getString("pic"));
                 post.setLiked(rs.getInt("liked"));
+                post.setLiked(post.isLiked(user_id));
                 posts.add(post);
                 System.out.println(gson.toJson(post));
                 i++;
@@ -171,7 +175,10 @@ public class Main {
                     "\"posts\": %s}", gson.toJson(posts)).toString();
         });
 
-        post("/post", ((((request, response) -> {
+        /**
+         * 发表帖子
+         */
+        post("/make-new-post", ((((request, response) -> {
             String title = request.queryParams("title");
             String content = request.queryParams("content");
             String user_id = request.queryParams("user_id");
@@ -263,6 +270,39 @@ public class Main {
             }
             System.out.println(gson.toJson(post));
             return String.format("{\"isOk\": true, \"msg\": \"返回成功\", \"PostAndComments\": %s}", gson.toJson(post)).toString();
+        });
+
+        /**
+         * 喜欢按钮
+         */
+        post("like", (request, response) -> {
+            String post_id = request.queryParams("post_id");
+            int liked = Integer.parseInt(request.queryParams("liked"));
+            String user_id = request.queryParams("user_id");
+            Jdbc jdbc1 = new Jdbc();
+            Jdbc jdbc2 = new Jdbc();
+            String sql = String.format("UPDATE public.post SET liked = liked+%d WHERE post_id='%s'", liked, post_id);
+            User user = new User();
+            user.setUser_id(user_id);
+            if (user.isExists()){
+                jdbc1.edit(sql);
+                /**
+                 * insert into liked table
+                 */
+                if (liked==-1){
+                    sql = String.format("DELETE FROM public.liked WHERE user_id='%s' AND post_id='%s'", user_id, post_id);
+                    jdbc2.delete(sql);
+                    return "{\"isOk\":true, \"msg\":\"取消点赞\"}";
+                } else if (liked==1){
+                    sql = String.format("INSERT INTO public.liked(user_id, post_id) VALUES('%s', '%s')", user_id, post_id);
+                    jdbc2.save(sql);
+                    return "{\"isOk\":true, \"msg\":\"点赞\"}";
+                } else {
+                    return "invalid value";
+                }
+
+            }
+            return "user not exists";
         });
 
     }
