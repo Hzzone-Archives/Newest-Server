@@ -250,8 +250,20 @@ public class Main {
                     comment.setFrom_name(rs2.getString("user_name"));
                     comment.setFrom_pic(rs2.getString("pic"));
                 }
+                while (true){
+                    String comment_id = Functions.getRandomString(30);
+                    String temp = String.format("SELECT * FROM public.comment WHERE commen_id='%s'", comment_id);
+                    Jdbc jdbc8 = new Jdbc();
+                    ResultSet t = jdbc8.querydata(temp);
+                    int i = 0;
+                    while (t.next())
+                        i++;
+                    if (i==0) {
+                        comment.setComment_id(comment_id);
+                        break;
+                    }
+                }
                 comments.add(comment);
-                System.out.println(gson.toJson(comment));
             }
             Post post = new Post();
             post.setComments(comments);
