@@ -38,7 +38,7 @@ public class Main {
                     response.cookie("user_id", user.getUser_id());
                     response.cookie("password", user.getPassword());
                     Gson gson = new Gson();
-                    return String.format("{\"isOk\":true, \"msg\":\"登录成功\",\"user\":%s}", gson.toJson(user));
+                    return String.format("{\"isOk\":true, \"msg\":\"登录成功\",\"user\":%s}", gson.toJson(user)).toString();
                 }
                 else return "{\"isOk\":false, \"msg\":\"密码错误\"}";
             }
@@ -219,6 +219,7 @@ public class Main {
          */
         post("/post-details", (request, response) -> {
             String post_id = request.queryParams("post_id");
+            String user_id = request.queryParams("user_id");
             String sql = String.format("SELECT * FROM public.comment AS c WHERE c.post_id='%s'", post_id).toString();
             Jdbc jdbc = new Jdbc();
             ResultSet rs = jdbc.querydata(sql);
@@ -234,15 +235,15 @@ public class Main {
                 String to_id = rs.getString("to_id");
                 if (to_id!=null) {
                     comment.setTo_id(to_id);
-                    sql = String.format("select * from public.user where user_id='%s'", to_id);
+                    sql = String.format("select * from public.user where user_id='%s'", to_id).toString();
                     Jdbc jdbc1 = new Jdbc();
                     ResultSet rs1 = jdbc1.querydata(sql);
                     while (rs1.next()) {
-                        comment.setTo_name(rs1.getString("to_name"));
-                        comment.setTo_pic(rs1.getString("to_pic"));
+                        comment.setTo_name(rs1.getString("user_name"));
+                        comment.setTo_pic(rs1.getString("pic"));
                     }
                 }
-                sql = String.format("select * from public.user where user_id='%s'", from_id);
+                sql = String.format("select * from public.user where user_id='%s'", from_id).toString();
                 Jdbc jdbc2 = new Jdbc();
                 ResultSet rs2 = jdbc2.querydata(sql);
                 while (rs2.next()) {
@@ -268,6 +269,14 @@ public class Main {
                 post.setAuthor_pic(rs3.getString("pic"));
                 post.setAuthor_id(rs3.getString("user_id"));
             }
+            sql = String.format("SELECT * FROM public.liked WHERE post_id='%s' AND user_id='%s'", post_id, user_id).toString();
+            Jdbc jdbc4 = new Jdbc();
+            ResultSet rs4 = jdbc4.querydata(sql);
+            int i = 0;
+            while (rs4.next())
+                i++;
+            if (i>0)
+                post.setLiked(Boolean.TRUE);
             System.out.println(gson.toJson(post));
             return String.format("{\"isOk\": true, \"msg\": \"返回成功\", \"PostAndComments\": %s}", gson.toJson(post)).toString();
         });
@@ -278,10 +287,11 @@ public class Main {
         post("like", (request, response) -> {
             String post_id = request.queryParams("post_id");
             int liked = Integer.parseInt(request.queryParams("liked"));
+            System.out.println(liked);
             String user_id = request.queryParams("user_id");
             Jdbc jdbc1 = new Jdbc();
             Jdbc jdbc2 = new Jdbc();
-            String sql = String.format("UPDATE public.post SET liked = liked+%d WHERE post_id='%s'", liked, post_id);
+            String sql = String.format("UPDATE public.post SET liked = liked+%d WHERE post_id='%s'", liked, post_id).toString();
             User user = new User();
             user.setUser_id(user_id);
             if (user.isExists()){
@@ -290,11 +300,13 @@ public class Main {
                  * insert into liked table
                  */
                 if (liked==-1){
-                    sql = String.format("DELETE FROM public.liked WHERE user_id='%s' AND post_id='%s'", user_id, post_id);
+                    System.out.println("mdzz");
+                    sql = String.format("DELETE FROM public.liked WHERE user_id='%s' AND post_id='%s'", user_id, post_id).toString();
+                    System.out.printf(sql);
                     jdbc2.delete(sql);
                     return "{\"isOk\":true, \"msg\":\"取消点赞\"}";
                 } else if (liked==1){
-                    sql = String.format("INSERT INTO public.liked(user_id, post_id) VALUES('%s', '%s')", user_id, post_id);
+                    sql = String.format("INSERT INTO public.liked(user_id, post_id) VALUES('%s', '%s')", user_id, post_id).toString();
                     jdbc2.save(sql);
                     return "{\"isOk\":true, \"msg\":\"点赞\"}";
                 } else {

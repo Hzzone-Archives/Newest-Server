@@ -87,7 +87,7 @@ repeatedly post same data to ```"192.168.21.100:4567/register-2"```, returns
 ```
 
 #### Make a post
-post data to ```"192.168.21.100:4567/post"```,
+post data to ```"192.168.21.100:4567/make-new-post"```,
 ```json
 {
   "title": "This is a test",
@@ -118,7 +118,7 @@ else returns,
 ```
 
 #### Get recently posts
-get from ```"192.168.21.100:4567/post"```,
+post user_id to ```"192.168.21.100:4567/post"```,
 ```json
 {
     "isOk": true,

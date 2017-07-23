@@ -1,10 +1,10 @@
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.google.gson.Gson;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
@@ -15,8 +15,9 @@ public class NewsCatch {
 
     public static void main(String[] args) throws IOException{
         List<NewsCatch> list = NewsCatch.NewsCatching();
-        System.out.println(list.size());
-        System.out.println(list.get(0).getTitle());
+//        Gson gson = new Gson();
+//        System.out.println(gson.toJson(list.get(0)));
+//        System.out.println(list.get(0).getCatagory());
 
     }
 
@@ -26,6 +27,16 @@ public class NewsCatch {
 
     private String date = null;
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    private String source = "Newest Tech";
+
     private String contents = null;
 
     private String id = null;
@@ -33,6 +44,11 @@ public class NewsCatch {
     private String catagory = null;
 
     private String url_address = null;
+
+//    public Boolean isExists(){
+//        Jdbc jdbc  = new Jdbc();
+//        String sql = String.format("")
+//    }
 
     public String getUrl_address() {
         return url_address;
@@ -88,10 +104,6 @@ public class NewsCatch {
 
     public static List<NewsCatch> NewsCatching() throws  IOException{
 
-            //这段测试用，一会儿把删掉
-            FileWriter fw = new FileWriter("myfile.txt");
-
-
         List<NewsCatch> newsCatchList = new ArrayList<>();
         final WebClient webClient = new WebClient(BrowserVersion.CHROME);
         webClient.getOptions().setCssEnabled(false);
@@ -101,7 +113,7 @@ public class NewsCatch {
 
         try {
             htmlPage = webClient.getPage(website);
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (IOException e){
             e.printStackTrace();
         }catch (InterruptedException e){
@@ -140,31 +152,19 @@ public class NewsCatch {
                 //爬取新闻url
                 newsCatch.setUrl_address(link);
 
-                fw.write(link);
-
-                fw.write("\n\n新闻id****************************************************************\n\n");
-
-
                 //爬取新闻id
                 String pattern = "(\\d+)";
                 Pattern r = Pattern.compile(pattern);
                 Matcher m = r.matcher(link);
-                if(m.find()){
+                if(m.find())
                     newsCatch.setId(m.group(0));
-                }
-
-                fw.write(m.group(0));
 
 
-                fw.write("\n\n新闻类别****************************************************************\n\n");
 
                 //爬取新闻类别
-                String [] parts = link.split("/");
-                newsCatch.setCatagory(parts[2]);
-
-                fw.write(parts[2]);
-
-                fw.write("\n\n新闻标题****************************************************************\n\n");
+                String[] parts = link.split("/");
+                newsCatch.setCatagory(parts[4]);
+                System.out.println(parts[4]);
 
 
                 //爬取新闻标题
@@ -172,35 +172,26 @@ public class NewsCatch {
                         .select("header")
                         .select("h1").html());
 
-                fw.write(xw.first()
-                        .select("header")
-                        .select("h1").html());
-
-                fw.write("\n\n新闻时间****************************************************************\n\n");
-
 
                 //爬取新闻时间
-                newsCatch.setDate(xw.first()
+                String str = xw.first()
                         .select("header")
                         .select("div")
-                        .select("span:nth-child(1)").html());
+                        .select("span:nth-child(1)").html();
+                String s1 = str.split(" ")[0];
+                String s2 = str.split(" ")[1];
+                s2 = s2.replaceAll("\r|\n", " ");
+                String[] s = s2.split("  ");
+                if (s.length==2)
+                    newsCatch.setSource(s[1]);
 
-                fw.write(xw.first()
-                        .select("header")
-                        .select("div")
-                        .select("span:nth-child(1)").html());
-
-                fw.write("\n\n新闻正文****************************************************************\n\n");
+                newsCatch.setDate(s1);
 
 
                 //爬取新闻正文
-                newsCatch.setContents(xw.first()
-                        .select("div.cnbeta-article-body").html());
-
-                fw.write(xw.first()
-                        .select("div.cnbeta-article-body").html());
-
-                fw.write("****************************************************************\n\n\n\n\n\n");
+                String topic = xw.first().select("div.article-summary").html();
+                String content = xw.first().select("div.article-content").html();
+                newsCatch.setContents(topic+content);
 
 
 
