@@ -1,10 +1,13 @@
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.google.gson.Gson;
+import org.apache.regexp.RE;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
 import org.jsoup.select.Elements;
@@ -12,16 +15,6 @@ import org.jsoup.select.Elements;
 import com.gargoylesoftware.htmlunit.*;
 
 public class NewsCatch {
-
-    public static void main(String[] args) throws IOException{
-        List<NewsCatch> list = NewsCatch.NewsCatching();
-//        Gson gson = new Gson();
-//        System.out.println(gson.toJson(list.get(0)));
-//        System.out.println(list.get(0).getCatagory());
-
-    }
-
-
 
     private String title = null;
 
@@ -45,10 +38,22 @@ public class NewsCatch {
 
     private String url_address = null;
 
-//    public Boolean isExists(){
-//        Jdbc jdbc  = new Jdbc();
-//        String sql = String.format("")
-//    }
+    public Boolean isExists(){
+        Jdbc jdbc  = new Jdbc();
+        String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", this.getUrl_address()).toString();
+        ResultSet rs = jdbc.querydata(sql);
+        Boolean value = false;
+        int i = 0;
+        try {
+            while (rs.next())
+                i++;
+            if (i>0)
+                value = true;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return value;
+    }
 
     public String getUrl_address() {
         return url_address;
@@ -164,7 +169,6 @@ public class NewsCatch {
                 //爬取新闻类别
                 String[] parts = link.split("/");
                 newsCatch.setCatagory(parts[4]);
-                System.out.println(parts[4]);
 
 
                 //爬取新闻标题

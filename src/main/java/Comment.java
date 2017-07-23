@@ -20,6 +20,16 @@ public class Comment {
 
     private String comment_id = null;
 
+    public String getTo_comment_id() {
+        return to_comment_id;
+    }
+
+    public void setTo_comment_id(String to_comment_id) {
+        this.to_comment_id = to_comment_id;
+    }
+
+    private String to_comment_id = null;
+
     public String getFrom_name() {
         return from_name;
     }

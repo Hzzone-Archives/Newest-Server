@@ -16,6 +16,25 @@ public class Post {
     private Date time;
     private List<Comment> comments = null;
     private String author_pic;
+    private String source = null;
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    private String category = null;
 
     public void setLiked(Boolean liked) {
         isLiked = liked;

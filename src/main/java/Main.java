@@ -109,10 +109,11 @@ public class Main {
          * 获得帖子的列表
          */
         post("/post", ((request, response) -> {
-            String user_id =request.queryParams("user_id");
+            String user_id = request.queryParams("user_id");
+            String category = request.queryParams("category");
+            String sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked, source, category FROM public.user NATURAL JOIN public.post WHERE category='%s' ORDER BY time DESC", category).toString();
             int num = 3;
             Jdbc jdbc = new Jdbc();
-            String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
             ResultSet rs = jdbc.querydata(sql);
             List<Post> posts = new ArrayList<>();
             int i = 0;
@@ -128,6 +129,8 @@ public class Main {
                 post.setAuthor_pic(rs.getString("pic"));
                 post.setLiked(rs.getInt("liked"));
                 post.setLiked(post.isLiked(user_id));
+                post.setCategory(rs.getString("category"));
+                post.setSource(rs.getString("source"));
                 posts.add(post);
                 i++;
             }
@@ -140,9 +143,11 @@ public class Main {
         post("/get-new-post", (request, response) -> {
             String post_id = request.queryParams("post_id");
             String user_id = request.queryParams("user_id");
+            String category = request.queryParams("category");
             int num = 3;
             Jdbc jdbc = new Jdbc();
-            String sql = "SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post ORDER BY time DESC";
+            String sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked, source, category FROM public.user NATURAL JOIN public.post WHERE category='%s' ORDER BY time DESC", category).toString();
+            System.out.println(sql);
             ResultSet rs = jdbc.querydata(sql);
             List<Post> posts = new ArrayList<>();
             int i = 0;
@@ -165,8 +170,9 @@ public class Main {
                 post.setAuthor_pic(rs.getString("pic"));
                 post.setLiked(rs.getInt("liked"));
                 post.setLiked(post.isLiked(user_id));
+                post.setCategory(rs.getString("category"));
+                post.setSource(rs.getString("source"));
                 posts.add(post);
-                System.out.println(gson.toJson(post));
                 i++;
             }
                 return String.format("{"+
@@ -232,6 +238,8 @@ public class Main {
                 comment.setDate(rs.getDate("time"));
                 String from_id = rs.getString("from_id");
                 comment.setFrom_id(from_id);
+                comment.setTo_comment_id(rs.getString("to_comment_id"));
+                comment.setComment_id(rs.getString("comment_id"));
                 String to_id = rs.getString("to_id");
                 if (to_id!=null) {
                     comment.setTo_id(to_id);
@@ -250,19 +258,19 @@ public class Main {
                     comment.setFrom_name(rs2.getString("user_name"));
                     comment.setFrom_pic(rs2.getString("pic"));
                 }
-                while (true){
-                    String comment_id = Functions.getRandomString(30);
-                    String temp = String.format("SELECT * FROM public.comment WHERE commen_id='%s'", comment_id);
-                    Jdbc jdbc8 = new Jdbc();
-                    ResultSet t = jdbc8.querydata(temp);
-                    int i = 0;
-                    while (t.next())
-                        i++;
-                    if (i==0) {
-                        comment.setComment_id(comment_id);
-                        break;
-                    }
-                }
+//                while (true){
+//                    String comment_id = Functions.getRandomString(30);
+//                    String temp = String.format("SELECT * FROM public.comment WHERE comment_id='%s'", comment_id);
+//                    Jdbc jdbc8 = new Jdbc();
+//                    ResultSet t = jdbc8.querydata(temp);
+//                    int i = 0;
+//                    while (t.next())
+//                        i++;
+//                    if (i==0) {
+//                        comment.setComment_id(comment_id);
+//                        break;
+//                    }
+//                }
                 comments.add(comment);
             }
             Post post = new Post();
@@ -289,7 +297,6 @@ public class Main {
                 i++;
             if (i>0)
                 post.setLiked(Boolean.TRUE);
-            System.out.println(gson.toJson(post));
             return String.format("{\"isOk\": true, \"msg\": \"返回成功\", \"PostAndComments\": %s}", gson.toJson(post)).toString();
         });
 
@@ -360,6 +367,10 @@ public class Main {
             }
             return "{\"isOk\": false, \"msg\": \"密码错误或帖子不存在\"}";
         });
+
+        /**
+         * 新闻列表
+         */
 
     }
 
