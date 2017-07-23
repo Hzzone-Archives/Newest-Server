@@ -284,10 +284,9 @@ public class Main {
         /**
          * 喜欢按钮
          */
-        post("like", (request, response) -> {
+        post("/like", (request, response) -> {
             String post_id = request.queryParams("post_id");
             int liked = Integer.parseInt(request.queryParams("liked"));
-            System.out.println(liked);
             String user_id = request.queryParams("user_id");
             Jdbc jdbc1 = new Jdbc();
             Jdbc jdbc2 = new Jdbc();
@@ -300,9 +299,7 @@ public class Main {
                  * insert into liked table
                  */
                 if (liked==-1){
-                    System.out.println("mdzz");
                     sql = String.format("DELETE FROM public.liked WHERE user_id='%s' AND post_id='%s'", user_id, post_id).toString();
-                    System.out.printf(sql);
                     jdbc2.delete(sql);
                     return "{\"isOk\":true, \"msg\":\"取消点赞\"}";
                 } else if (liked==1){
@@ -315,6 +312,41 @@ public class Main {
 
             }
             return "user not exists";
+        });
+
+        /**
+         * 删除帖子
+         */
+        post("/delete", (request, response) -> {
+            String post_id = request.queryParams("post_id");
+            String user_id = request.queryParams("user_id");
+            String password = request.queryParams("password");
+            System.out.println(password);
+            String sql = String.format("SELECT * FROM public.post WHERE post_id='%s' AND user_id='%s'", post_id, user_id).toString();
+            Jdbc jdbc4 = new Jdbc();
+            User user = new User();
+            user.setUser_id(user_id);
+            user = user.getUser();
+            ResultSet rs4 = jdbc4.querydata(sql);
+            Gson gson = new Gson();
+            System.out.println(gson.toJson(user));
+            int i = 0;
+            while (rs4.next())
+                i++;
+            System.out.println(i);
+            if (i>0&&password.equals(user.getPassword())&&user.isExists()){
+                Jdbc jdbc1 = new Jdbc();
+                Jdbc jdbc2 = new Jdbc();
+                Jdbc jdbc3 = new Jdbc();
+                sql = String.format("DELETE FROM public.liked WHERE post_id='%s'", post_id).toString();
+                jdbc1.delete(sql);
+                sql = String.format("DELETE FROM public.comment WHERE post_id='%s'", post_id).toString();
+                jdbc2.delete(sql);
+                sql = String.format("DELETE FROM public.post WHERE post_id='%s'", post_id).toString();
+                jdbc3.delete(sql);
+                return "{\"isOk\": true, \"msg\": \"删除成功\"}";
+            }
+            return "{\"isOk\": false, \"msg\": \"密码错误或帖子不存在\"}";
         });
 
     }

@@ -198,41 +198,65 @@ if there is no more post, it will return:
 post data to ```"192.168.21.100:4567/post-details"```
 ```json
 {
-  "post_id": "11"
+  "post_id": "11",
+  "user_id": "zhizhonghwang@gmail.com"
 }
 ```
 returns:
 ```json
 {
-    "isOk": true,
-    "msg": "返回成功",
-    "PostAndComments": {
-        "post_id": "11",
-        "author_name": "Hzzone",
-        "author_id": "zhizhonghwang@gmail.com",
-        "title": "This is a test",
-        "content": "test",
-        "time": "七月 22, 2017",
-        "comments": [
+    "isOk":true,
+    "msg":"返回成功",
+    "PostAndComments":{
+        "post_id":"11",
+        "author_name":"Hzzone",
+        "author_id":"zhizhonghwang@gmail.com",
+        "title":"1",
+        "content":"test",
+        "time":"Jul 22, 2017",
+        "comments":[
             {
-                "post_id": "11",
-                "from_id": "zhizhonghwang@gmail.com",
-                "content": "test test",
-                "date": "七月 27, 2017",
-                "from_name": "Hzzone",
-                "from_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+                "post_id":"11",
+                "from_id":"zhizhonghwang@gmail.com",
+                "content":"test test",
+                "date":"Jul 27, 2017",
+                "from_name":"Hzzone",
+                "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
             },
             {
-                "post_id": "11",
-                "from_id": "zhizhonghwang@gmail.com",
-                "content": "mdzz",
-                "date": "七月 24, 2017",
-                "from_name": "Hzzone",
-                "from_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+                "post_id":"11",
+                "from_id":"zhizhonghwang@gmail.com",
+                "content":"mdzz",
+                "date":"Jul 24, 2017",
+                "from_name":"Hzzone",
+                "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+            },
+            {
+                "post_id":"11",
+                "from_id":"zhizhonghwang@gmail.com",
+                "to_id":"zhizhonghwang@gmail.com",
+                "content":"哈哈哈",
+                "date":"Jul 14, 2017",
+                "from_name":"Hzzone",
+                "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+                "to_name":"Hzzone",
+                "to_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+            },
+            {
+                "post_id":"11",
+                "from_id":"zhizhonghwang@gmail.com",
+                "to_id":"1141408077@qq.com",
+                "content":"1",
+                "date":"Jul 27, 2017",
+                "from_name":"Hzzone",
+                "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+                "to_name":"Zhizhong",
+                "to_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
             }
         ],
-        "author_pic": "http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
-        "liked": 0
+        "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+        "isLiked":true,
+        "liked":2
     }
 }
 ```
@@ -260,5 +284,31 @@ else
     "msg": "点赞"
 }
 ```
+
+
+#### delete post
+post data to ```"192.168.21.100:4567/delete"```
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com",
+  "password": "1111",
+  "post_id": "55"
+}
+```
+if password is not correct, user not exists or post not exists, returns:
+```json
+{
+    "isOk":false,
+    "msg":"密码错误或帖子不存在"
+}
+```
+else:
+```json
+{
+    "isOk":true,
+    "msg":"删除成功"
+}
+```
+It will delete post and all comments and likes
 
 
