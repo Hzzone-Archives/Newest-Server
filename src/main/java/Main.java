@@ -5,11 +5,10 @@ import spark.Filter;
 import spark.Request;
 import spark.Response;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static spark.Spark.*;
 
@@ -387,6 +386,42 @@ public class Main {
                 response.header("Access-Control-Allow-Headers", headers);
             }
         });
+    }
+
+    /**
+     * 每隔十分钟更新新闻
+     */
+    private static void updateNews(){
+        Integer cacheTime = 600000;
+        Integer delay = 20000;
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    List<NewsCatch> list = NewsCatch.NewsCatching();
+                    for (NewsCatch element:list){
+                        Jdbc jdbc = new Jdbc();
+                        Jdbc jdbc1 = new Jdbc();
+                        String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", element.getUrl_address());
+                        String save = String.format("INSERT INTO public.post(post_id, user_id, time, title, content, category, source) VALUES('%s', '%s','%tF', '%s', '%s', '%s', '%s')",
+                                element.getUrl_address(), "Newest tech", "...", element.getTitle(), element.getContents(), element.getCatagory(), element.getSource());
+                        ResultSet rs = jdbc.querydata(sql);
+                        int i = 0;
+                        try {
+                            while (rs.next())
+                                i++;
+                            if (i==0);
+                        }catch (SQLException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }, delay, cacheTime);
     }
 
 }

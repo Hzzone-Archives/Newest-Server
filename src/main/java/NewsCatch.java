@@ -1,12 +1,15 @@
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.google.gson.Gson;
+import javafx.scene.input.DataFormat;
 import org.apache.regexp.RE;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
@@ -16,6 +19,21 @@ import com.gargoylesoftware.htmlunit.*;
 
 public class NewsCatch {
 
+    public static void main(String[] args){
+//        try {
+//            List<NewsCatch> list = NewsCatch.NewsCatching();
+////            SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy年MM月dd日");
+//            for (NewsCatch newsCatch : list) {
+//                System.out.println(newsCatch.getDate());
+//            }
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
+        String test = "2017年07月23日";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
+        System.out.println(dateFormat.format(test));
+
+    }
     private String title = null;
 
     private String date = null;
