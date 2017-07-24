@@ -308,7 +308,16 @@ post data to ```"192.168.21.100:4567/delete"```
 {
   "user_id": "zhizhonghwang@gmail.com",
   "password": "1111",
-  "post_id": "55"
+  "post_id": "55",
+  "comment_id": "1111"
+}
+```
+or
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com",
+  "password": "1111",
+  "comment_id": "1111"
 }
 ```
 if password is not correct, user not exists or post not exists, returns:

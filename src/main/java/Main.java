@@ -1,10 +1,11 @@
 import com.google.gson.Gson;
-import jdk.nashorn.internal.scripts.JD;
-import org.apache.regexp.RE;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
-import sun.security.jgss.GSSCaller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -341,32 +342,52 @@ public class Main {
          */
         post("/delete", (request, response) -> {
             String post_id = request.queryParams("post_id");
+            String comment_id = request.queryParams("comment_id");
             String user_id = request.queryParams("user_id");
             String password = request.queryParams("password");
-            System.out.println(password);
-            String sql = String.format("SELECT * FROM public.post WHERE post_id='%s' AND user_id='%s'", post_id, user_id).toString();
-            Jdbc jdbc4 = new Jdbc();
-            User user = new User();
-            user.setUser_id(user_id);
-            user = user.getUser();
-            ResultSet rs4 = jdbc4.querydata(sql);
-            Gson gson = new Gson();
-            System.out.println(gson.toJson(user));
-            int i = 0;
-            while (rs4.next())
-                i++;
-            System.out.println(i);
-            if (i>0&&password.equals(user.getPassword())&&user.isExists()){
-                Jdbc jdbc1 = new Jdbc();
-                Jdbc jdbc2 = new Jdbc();
-                Jdbc jdbc3 = new Jdbc();
-                sql = String.format("DELETE FROM public.liked WHERE post_id='%s'", post_id).toString();
-                jdbc1.delete(sql);
-                sql = String.format("DELETE FROM public.comment WHERE post_id='%s'", post_id).toString();
-                jdbc2.delete(sql);
-                sql = String.format("DELETE FROM public.post WHERE post_id='%s'", post_id).toString();
-                jdbc3.delete(sql);
-                return "{\"isOk\": true, \"msg\": \"删除成功\"}";
+            System.out.println(post_id);
+            if (post_id!=null) {
+                String sql = String.format("SELECT * FROM public.post WHERE post_id='%s' AND user_id='%s'", post_id, user_id).toString();
+                Jdbc jdbc4 = new Jdbc();
+                User user = new User();
+                user.setUser_id(user_id);
+                user = user.getUser();
+                ResultSet rs4 = jdbc4.querydata(sql);
+                Gson gson = new Gson();
+                System.out.println(gson.toJson(user));
+                int i = 0;
+                while (rs4.next())
+                    i++;
+                if (i > 0 && password.equals(user.getPassword()) && user.isExists()) {
+                    Jdbc jdbc1 = new Jdbc();
+                    Jdbc jdbc2 = new Jdbc();
+                    Jdbc jdbc3 = new Jdbc();
+                    sql = String.format("DELETE FROM public.liked WHERE post_id='%s'", post_id).toString();
+                    jdbc1.delete(sql);
+                    sql = String.format("DELETE FROM public.comment WHERE post_id='%s'", post_id).toString();
+                    jdbc2.delete(sql);
+                    sql = String.format("DELETE FROM public.post WHERE post_id='%s'", post_id).toString();
+                    jdbc3.delete(sql);
+                    return "{\"isOk\": true, \"msg\": \"删除成功\"}";
+                }
+            } else {
+                String sql = String.format("SELECT * FROM public.comment WHERE comment_id='%s' AND from_id='%s'", comment_id, user_id).toString();
+                Jdbc jdbc4 = new Jdbc();
+                User user = new User();
+                user.setUser_id(user_id);
+                user = user.getUser();
+                ResultSet rs4 = jdbc4.querydata(sql);
+                Gson gson = new Gson();
+                System.out.println(gson.toJson(user));
+                int i = 0;
+                while (rs4.next())
+                    i++;
+                if (i > 0 && password.equals(user.getPassword()) && user.isExists()) {
+                    Jdbc jdbc1 = new Jdbc();
+                    sql = String.format("DELETE FROM public.comment WHERE comment_id='%s'", comment_id).toString();
+                    jdbc1.delete(sql);
+                    return "{\"isOk\": true, \"msg\": \"删除成功\"}";
+                }
             }
             return "{\"isOk\": false, \"msg\": \"密码错误或帖子不存在\"}";
         });
@@ -390,7 +411,6 @@ public class Main {
             while (true){
                 comment_id = Functions.getRandomString(30);
                 String s = String.format("Select * from public.comment where comment_id='%s'", comment_id).toString();
-                System.out.println(s);
                 Jdbc jdbc = new Jdbc();
                 ResultSet rs = jdbc.querydata(s);
                 int i = 0;
@@ -403,7 +423,6 @@ public class Main {
             }
             String sql = String.format("INSERT INTO public.comment(post_id, from_id, to_id, content, time, comment_id, to_comment_id) VALUES('%s', '%s', '%s', '%s', '%tF', '%s', '%s')",
                     post_id, from_id, comment.getTo_comment_id(), content, new Date(), comment_id, comment.getTo_comment_id()).toString();
-            System.out.println(sql);
             Jdbc jdbc = new Jdbc();
             jdbc.save(sql);
             Gson gson = new Gson();
@@ -443,10 +462,34 @@ public class Main {
                         Jdbc jdbc = new Jdbc();
                         Jdbc jdbc1 = new Jdbc();
                         System.out.println(element.getUrl_address());
+                        Document doc = Jsoup.parse(element.getContents());
+                        Elements elements = doc.select("div.topic");
+                        String pic = null;
+                        Elements elements1;
+                        Element element1 = elements.first();
+                        elements1 = element1.getElementsByTag("img");
+                        Element element2 = elements1.first();
+                        pic = element2.attr("src");
+                        System.out.println(pic);
+                        doc.select("div.topic").remove();
                         Date date = new SimpleDateFormat("yyyy年MM月dd日").parse(element.getDate());
-                        String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", element.getUrl_address());
+                        String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", element.getUrl_address()).toString();
                         String save = String.format("INSERT INTO public.post(post_id, user_id, time, title, content, category, source) VALUES('%s', '%s','%tF', '%s', '%s', '%s', '%s')",
-                                element.getUrl_address().replaceAll("'", "''"), "Newest-Tech@gmail.com", date, element.getTitle().replaceAll("'", "''"), element.getContents().replaceAll("'", "''"), element.getCatagory().replaceAll("'", "''"), element.getSource().replaceAll("'", "''"));
+                                element.getUrl_address().replaceAll("'", "''"), (element.getSource()+"@gmail.com").replaceAll("'", "''"), date, element.getTitle().replaceAll("'", "''"), doc.body().html().replaceAll("'", "''"), element.getCatagory().replaceAll("'", "''"), element.getSource().replaceAll("'", "''")
+                        ).toString();
+                        Jdbc jdbc10 = new Jdbc();
+                        String s1 = element.getSource()+"@gmail.com";
+                        String s2 = String.format("select * from public.user where user_id='%s'", s1).toString();
+                        ResultSet rs10 = jdbc10.querydata(s2);
+                        int j = 0;
+                        while (rs10.next()) {
+                            j++;
+                        }
+                        if (j==0){
+                            String s3 = String.format("insert into public.user(user_id, user_name, password, pic) values('%s', '%s', '%s', '%s')", s1, element.getSource(), "1111", pic.replaceAll("'", "''")).toString();
+                            Jdbc jdbc11 = new Jdbc();
+                            jdbc11.save(s3);
+                        }
                         ResultSet rs = jdbc.querydata(sql);
                         int i = 0;
                         while (rs.next())

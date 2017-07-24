@@ -19,7 +19,23 @@ import javax.xml.crypto.Data;
 public class NewsCatch {
 
     public static void main(String[] args){
-        Main.updateNews();
+        String test = "<div class=\"topic\">\n" +
+                " <a href=\"http://www.cnbeta.com/topics/422.htm\" target=\"_blank\"><img title=\"the United States 美国\" src=\"http://static.cnbetacdn.com/topics/0f975693732be0a.png\"></a>\n" +
+                "</div> \n" +
+                "<p><strong>美国总统川普和俄罗斯总统普京曾在之前的会晤时共商成立美俄网络安全联盟的事宜，但是美国国家安全局执行官迈克·罗杰斯对此举表示反对。</strong>考虑到美俄之间微妙的外交关系、俄国操控美国大选的传言以及川普对自己和俄罗斯关系的不断否认，迈克对于联盟的反对有些出人意料。他表示现在并不是成立该联盟的最佳时机。</p><p>在上周出席的一场安全论坛上，他对于美俄两国网络安全联盟的问题回应道，尽管我不负责决策，但是我认为现在并不是成立联盟的最好时机。</p>\n" +
+                "<p><img src=\"https://upload.wikimedia.org/wikipedia/commons/3/39/Flag-map_of_Russia-USA.svg\"></p>\n" +
+                "<p>不过考虑到美俄两国之间的利益，是否有合作的时机还尚不明朗，我们也无法确认两国元首对于此项提议讨论的严肃和细节程度。甚至连川普本人都表示我和普京讨论过这个联盟并不意味着它一定会成立。</p>";
+        Document doc = Jsoup.parse(test);
+        Elements elements = doc.select("div.topic");
+        String pic = null;
+        Elements elements1;
+        for (Element element:elements) {
+            elements1 = element.getElementsByTag("img");
+            for (Element element1 : elements1)
+                pic = element1.attr("src");
+        }
+        doc.select("div.topic").remove();
+
     }
 
     private String title = null;
