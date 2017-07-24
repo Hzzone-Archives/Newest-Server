@@ -427,6 +427,29 @@ return
     ]
 }
 ```
+#### Change password
+```/change-name```
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com",
+  "password": "1111",
+  "new_user_name": "Hzzone"
+}
+```
+return
+```json
+{
+    "isOk":true,
+    "msg":"修改成功",
+    "user":{
+        "user_id":"zhizhonghwang@gmail.com",
+        "user_name":"Hzzone",
+        "password":"1111",
+        "token":"1111",
+        "pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+    }
+}
+```
 #### My comments
 
 

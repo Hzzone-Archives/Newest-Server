@@ -200,26 +200,22 @@ public class Main {
             post.setContent(content);
             post.setTitle(title);
             post.setTime(date.toString());
+            post.setAuthor_id(user_id);
             Jdbc jdbc = new Jdbc();
             while (true) {
                 String post_id = Functions.getRandomString(30);
                 String sql = "select * from public.post where post_id='" + post_id + "'";
-                Functions.log(sql);
                 ResultSet rs = jdbc.querydata(sql);
-                List<String> posts = new ArrayList<>();
-                try{
-                    while (rs.next())
-                        posts.add(rs.getString(1));
-                } catch (SQLException e){
-                    e.printStackTrace();
-                }
-                if (posts.size() == 0) {
+                int i = 0;
+                while (rs.next())
+                    i++;
+                if (i==0){
                     post.setPost_id(post_id);
                     break;
                 }
             }
             Gson gson = new Gson();
-            String sql = String.format("insert into public.post values('%s', '%s', '%s', '%s', '%s')", post.getAuthor_id(), post.getPost_id(), post.getTitle(), post.getTime().toString(), post.getContent());
+            String sql = String.format("insert into public.post(user_id, post_id, title, time, content) values('%s', '%s', '%s', '%s', '%s')", post.getAuthor_id(), post.getPost_id(), post.getTitle(), post.getTime(), post.getContent());
             Functions.log(sql);
             jdbc.save(sql);
             return "{\"isOk\":true, \"msg\":\"发表成功\", \"post\":"+gson.toJson(post)+"}";
@@ -474,6 +470,36 @@ public class Main {
             }
             Gson gson = new Gson();
             return String.format("{\"isOk\": true, \"msg\": \"成功\", \"atme\":%s}", gson.toJson(comments)).toString();
+        });
+
+        /**
+         * 我的评论
+         */
+        post("/my-like", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            return "hello world";
+        });
+
+        /**
+         * 修改用户名
+         */
+        post("/change-name", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            String password = request.queryParams("password");
+            String new_user_name = request.queryParams("new_user_name");
+            User user = new User();
+            user.setUser_id(user_id);
+            if (!user.isExists())
+                return "user not exists";
+            user = user.getUser();
+            if (!user.getPassword().equals(password))
+                return "password incorrect";
+            String sql = String.format("UPDATE public.user SET user_name='%s' WHERE user_id='%s'", new_user_name, user_id);
+            Jdbc jdbc = new Jdbc();
+            jdbc.edit(sql);
+            user = user.getUser();
+            Gson gson = new Gson();
+            return String.format("{\"isOk\": true, \"msg\": \"修改成功\", \"user\": %s}", gson.toJson(user));
         });
 
     }
