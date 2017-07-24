@@ -4,16 +4,20 @@ import org.apache.regexp.RE;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
+import sun.security.jgss.GSSCaller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static spark.Spark.*;
 
 public class Main {
     public static void main(String[] args) {
+        updateNews();
         enableCORS("*", "*", "*");
 
         get("/hello", (request, response) -> "Hello World");
@@ -368,8 +372,43 @@ public class Main {
         });
 
         /**
-         * 新闻列表
+         * 评论
          */
+        post("/comment", (request, response) -> {
+            String post_id = request.queryParams("post_id");
+            String from_id = request.queryParams("from_id");
+            String to_id = request.queryParams("to_id");
+            String to_comment_id = request.queryParams("to_comment_id");
+            String content = request.queryParams("content");
+            String comment_id = null;
+            Comment comment = new Comment();
+            comment.setPost_id(post_id);
+            comment.setFrom_id(from_id);
+            comment.setTo_id(to_id);
+            comment.setTo_comment_id(to_comment_id);
+            comment.setContent(content);
+            while (true){
+                comment_id = Functions.getRandomString(30);
+                String s = String.format("Select * from public.comment where comment_id='%s'", comment_id).toString();
+                System.out.println(s);
+                Jdbc jdbc = new Jdbc();
+                ResultSet rs = jdbc.querydata(s);
+                int i = 0;
+                while (rs.next())
+                    i++;
+                if (i==0) {
+                    comment.setComment_id(comment_id);
+                    break;
+                }
+            }
+            String sql = String.format("INSERT INTO public.comment(post_id, from_id, to_id, content, time, comment_id, to_comment_id) VALUES('%s', '%s', '%s', '%s', '%tF', '%s', '%s')",
+                    post_id, from_id, comment.getTo_comment_id(), content, new Date(), comment_id, comment.getTo_comment_id()).toString();
+            System.out.println(sql);
+            Jdbc jdbc = new Jdbc();
+            jdbc.save(sql);
+            Gson gson = new Gson();
+            return String.format("{\"isOk\": true, \"msg\": \"评论成功\", \"comment\": %s}", gson.toJson(comment));
+        });
 
     }
 
@@ -391,34 +430,38 @@ public class Main {
     /**
      * 每隔十分钟更新新闻
      */
-    private static void updateNews(){
+    public static void updateNews(){
         Integer cacheTime = 600000;
-        Integer delay = 20000;
+        Integer delay = 00000;
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
                     List<NewsCatch> list = NewsCatch.NewsCatching();
-                    for (NewsCatch element:list){
+                    for (NewsCatch element : list) {
                         Jdbc jdbc = new Jdbc();
                         Jdbc jdbc1 = new Jdbc();
+                        System.out.println(element.getUrl_address());
+                        Date date = new SimpleDateFormat("yyyy年MM月dd日").parse(element.getDate());
                         String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", element.getUrl_address());
                         String save = String.format("INSERT INTO public.post(post_id, user_id, time, title, content, category, source) VALUES('%s', '%s','%tF', '%s', '%s', '%s', '%s')",
-                                element.getUrl_address(), "Newest tech", "...", element.getTitle(), element.getContents(), element.getCatagory(), element.getSource());
+                                element.getUrl_address().replaceAll("'", "''"), "Newest-Tech@gmail.com", date, element.getTitle().replaceAll("'", "''"), element.getContents().replaceAll("'", "''"), element.getCatagory().replaceAll("'", "''"), element.getSource().replaceAll("'", "''"));
                         ResultSet rs = jdbc.querydata(sql);
                         int i = 0;
-                        try {
-                            while (rs.next())
-                                i++;
-                            if (i==0);
-                        }catch (SQLException e){
-                            e.printStackTrace();
+                        while (rs.next())
+                            i++;
+                        if (i == 0){
+                           jdbc1.save(save);
+                            System.out.println("保存成功");
                         }
-
                     }
                 } catch (IOException e){
                     e.printStackTrace();
+                } catch (SQLException e){
+                    e.printStackTrace();
+                } catch (ParseException e){
+                    e.getErrorOffset();
                 }
             }
         }, delay, cacheTime);

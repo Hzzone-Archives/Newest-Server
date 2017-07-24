@@ -327,6 +327,40 @@ else:
 ```
 It will delete post and all comments and likes
 
+#### Comment
+post data to ```/comment```
+if to comment:
+```json
+{
+  "from_id": "zhizhonghwang@gmail.com",
+  "post_id": "11",
+  "to_id": "1141408077@qq.com",
+  "to_comment_id": "asdfasdwe",
+  "content": "xixixixixixi"
+}
+```
+if to post rather than to comment
+```json
+{
+  "from_id": "zhizhonghwang@gmail.com",
+  "post_id": "11",
+  "content": "xixixixixixi"    
+}
+```
+it will return:
+```json
+{
+    "isOk":true,
+    "msg":"评论成功",
+    "comment":{
+        "post_id":"11",
+        "from_id":"zhizhonghwang@gmail.com",
+        "content":"hahahahahahha",
+        "comment_id":"yglgwyijjhgjqjwyqllakrmrghnddl"
+    }
+}
+```
+
 #### My comments
 
 

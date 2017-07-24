@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1806950e-c6c4-4d9c-a2a9-9499d4018304" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NewsCatch.java" afterPath="$PROJECT_DIR$/src/main/java/NewsCatch.java" />
     </list>
@@ -23,24 +24,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="413" column="38" lean-forward="false" selection-start-line="413" selection-start-column="38" selection-end-line="413" selection-end-column="38" />
+            <state relative-caret-position="155">
+              <caret line="406" column="34" lean-forward="false" selection-start-line="406" selection-start-column="34" selection-end-line="406" selection-end-column="34" />
               <folding>
-                <element signature="method#main#0;class#Main#0" expanded="false" />
-                <element signature="e#581#1595#0" expanded="false" />
-                <element signature="e#1675#2633#0" expanded="false" />
-                <element signature="e#2714#4165#0" expanded="false" />
-                <element signature="e#4237#5796#0" expanded="false" />
-                <element signature="e#7856#9441#0" expanded="false" />
-                <element signature="e#9522#13479#0" expanded="false" />
-                <element signature="e#13545#14881#0" expanded="false" />
-                <element signature="e#14949#16495#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#707#1721#0" expanded="false" />
+                <element signature="e#1801#2759#0" expanded="false" />
+                <element signature="e#2840#4291#0" expanded="false" />
+                <element signature="e#4363#5922#0" expanded="false" />
+                <element signature="e#5957#7904#0" expanded="false" />
+                <element signature="e#7982#9567#0" expanded="false" />
+                <element signature="e#9648#13605#0" expanded="false" />
+                <element signature="e#13671#15007#0" expanded="false" />
+                <element signature="e#15075#16621#0" expanded="false" />
                 <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-                <element signature="e#17297#18604#0" expanded="true" />
-                <element signature="e#18603#18604#0" expanded="true" />
+                <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+                <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+                <element signature="e#19227#20953#0" expanded="true" />
+                <element signature="e#20952#20953#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,16 +62,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsCatch.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewsCatch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/NewsCatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="33" column="48" lean-forward="false" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+            <state relative-caret-position="101">
+              <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
                 <element signature="method#isExists#0;class#NewsCatch#0" expanded="false" />
-                <element signature="method#NewsCatching#0;class#NewsCatch#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Jdbc.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Jdbc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,55 +91,61 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="212">
-                <caret line="205" column="21" lean-forward="true" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+              <first_editor relative-caret-position="421">
+                <caret line="363" column="14" lean-forward="false" selection-start-line="363" selection-start-column="14" selection-end-line="363" selection-end-column="14" />
                 <folding>
-                  <marker date="1500821828000" expanded="true" signature="136:200" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
-                  <marker date="1500821828000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
-                  <marker date="1500821828000" expanded="true" signature="731:814" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
-                  <marker date="1500821828000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="1586:1686" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="1708:1941" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="1968:2004" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="2175:3411" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="2227:3409" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="3392:3409" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="3406:3409" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="3546:3616" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="3737:4176" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="4160:4176" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
-                  <marker date="1500821828000" expanded="true" signature="4368:4450" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="4732:6623" ph="[...]" />
-                  <marker date="1500821828000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-                  <marker date="1500821828000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
-                  <marker date="1500821828000" expanded="true" signature="7117:7200" ph="{...}" />
-                  <marker date="1500821828000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
-                  <marker date="1500821828000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="136:200" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
+                  <marker date="1500868768000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
+                  <marker date="1500868768000" expanded="true" signature="731:814" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
+                  <marker date="1500868768000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="1586:1686" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="1708:1941" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="1968:2004" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="2175:3411" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="2227:3409" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="3392:3409" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="3406:3409" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="3546:3616" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="3737:4176" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="4160:4176" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
+                  <marker date="1500868768000" expanded="true" signature="4368:4450" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="4732:6623" ph="[...]" />
+                  <marker date="1500868768000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+                  <marker date="1500868768000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="7117:7200" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
+                  <marker date="1500868768000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="7503:7657" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="7704:7706" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="7704:7798" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="7706:7798" ph="{...}" />
+                  <marker date="1500868768000" expanded="true" signature="7827:8045" ph="{&quot;isOk&quot;: true...}" />
+                  <marker date="1500868768000" expanded="true" signature="7878:8043" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -176,9 +197,6 @@
             <state relative-caret-position="399">
               <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#421#422#0" expanded="false" />
-                <element signature="e#458#459#0" expanded="false" />
                 <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
                 <element signature="method#main#0;class#Functions#0" expanded="false" />
               </folding>
@@ -227,9 +245,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Functions.java" />
         <option value="$PROJECT_DIR$/src/main/java/Comment.java" />
         <option value="$PROJECT_DIR$/src/main/java/Post.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/NewsCatch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -366,7 +384,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.NewsCatch">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -849,8 +867,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.NewsCatch" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.NewsCatch" />
         <item index="2" class="java.lang.String" itemvalue="Application.Test" />
         <item index="3" class="java.lang.String" itemvalue="Application.Post" />
         <item index="4" class="java.lang.String" itemvalue="Application.Functions" />
@@ -877,12 +895,12 @@
       <workItem from="1500654318315" duration="17637000" />
       <workItem from="1500738700380" duration="6913000" />
       <workItem from="1500803578589" duration="345000" />
-      <workItem from="1500804699290" duration="12335000" />
+      <workItem from="1500804699290" duration="20329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90079000" />
+    <option name="totallyTimeSpent" value="98073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -895,7 +913,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -907,12 +924,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30146083" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33200532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.4966118" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4966118" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1014,9 +1031,6 @@
         <state relative-caret-position="399">
           <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
             <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
             <element signature="method#main#0;class#Functions#0" expanded="false" />
           </folding>
@@ -1028,18 +1042,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1058,8 +1075,9 @@
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
             <element signature="method#isExists#0;class#NewsCatch#0" expanded="false" />
-            <element signature="method#NewsCatching#0;class#NewsCatch#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1070,52 +1088,58 @@
           <first_editor relative-caret-position="3629">
             <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
             <folding>
-              <marker date="1500821828000" expanded="true" signature="136:200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="731:814" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1586:1686" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1708:1941" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1968:2004" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2175:3411" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2227:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3406:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3546:3616" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="3737:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4160:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="4368:4450" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4732:6623" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7117:7200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="136:200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="731:814" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1586:1686" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1708:1941" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1968:2004" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2175:3411" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2227:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3406:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3546:3616" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="3737:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4160:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="4368:4450" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4732:6623" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7117:7200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7503:7657" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7706" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7706:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7827:8045" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7878:8043" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -1190,9 +1214,6 @@
         <state relative-caret-position="19">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
             <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
             <element signature="method#main#0;class#Functions#0" expanded="false" />
           </folding>
@@ -1212,18 +1233,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1234,52 +1258,58 @@
           <first_editor relative-caret-position="2470">
             <caret line="130" column="1" lean-forward="true" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
             <folding>
-              <marker date="1500821828000" expanded="true" signature="136:200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="731:814" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1586:1686" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1708:1941" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1968:2004" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2175:3411" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2227:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3406:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3546:3616" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="3737:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4160:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="4368:4450" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4732:6623" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7117:7200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="136:200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="731:814" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1586:1686" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1708:1941" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1968:2004" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2175:3411" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2227:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3406:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3546:3616" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="3737:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4160:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="4368:4450" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4732:6623" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7117:7200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7503:7657" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7706" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7706:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7827:8045" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7878:8043" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -1354,9 +1384,6 @@
         <state relative-caret-position="513">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
             <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
             <element signature="method#main#0;class#Functions#0" expanded="false" />
           </folding>
@@ -1384,18 +1411,21 @@
         <state relative-caret-position="1501">
           <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1434,9 +1464,6 @@
         <state relative-caret-position="475">
           <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
             <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
             <element signature="method#main#0;class#Functions#0" expanded="false" />
           </folding>
@@ -1481,18 +1508,21 @@
         <state relative-caret-position="1501">
           <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1502,9 +1532,6 @@
         <state relative-caret-position="475">
           <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
             <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
             <element signature="method#main#0;class#Functions#0" expanded="false" />
           </folding>
@@ -1561,18 +1588,21 @@
         <state relative-caret-position="152">
           <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="25" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1598,18 +1628,21 @@
         <state relative-caret-position="95">
           <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
             <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1636,32 +1669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Jdbc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="72" column="70" lean-forward="false" selection-start-line="72" selection-start-column="70" selection-end-line="72" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/postgresql/postgresql/8.2-504.jdbc4/postgresql-8.2-504.jdbc4.jar!/org/postgresql/jdbc2/AbstractJdbc2ResultSet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="1191" column="0" lean-forward="false" selection-start-line="1191" selection-start-column="0" selection-end-line="1191" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Functions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
-            <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
-            <element signature="method#main#0;class#Functions#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1700,6 +1711,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Jdbc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <element signature="method#sendEmail#0;class#Functions#0" expanded="false" />
+            <element signature="method#main#0;class#Functions#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -1717,64 +1747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="212">
-            <caret line="205" column="21" lean-forward="true" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
-            <folding>
-              <marker date="1500821828000" expanded="true" signature="136:200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="731:814" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1586:1686" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1708:1941" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="1968:2004" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2175:3411" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="2227:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="3392:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3406:3409" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="3546:3616" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="3737:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4160:4176" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="4368:4450" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="4732:6623" ph="[...]" />
-              <marker date="1500821828000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
-              <marker date="1500821828000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
-              <marker date="1500821828000" expanded="true" signature="7117:7200" ph="{...}" />
-              <marker date="1500821828000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
-              <marker date="1500821828000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1785,35 +1757,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/NewsCatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="413" column="38" lean-forward="false" selection-start-line="413" selection-start-column="38" selection-end-line="413" selection-end-column="38" />
+        <state relative-caret-position="101">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
           <folding>
-            <element signature="method#main#0;class#Main#0" expanded="false" />
-            <element signature="e#581#1595#0" expanded="false" />
-            <element signature="e#1675#2633#0" expanded="false" />
-            <element signature="e#2714#4165#0" expanded="false" />
-            <element signature="e#4237#5796#0" expanded="false" />
-            <element signature="e#7856#9441#0" expanded="false" />
-            <element signature="e#9522#13479#0" expanded="false" />
-            <element signature="e#13545#14881#0" expanded="false" />
-            <element signature="e#14949#16495#0" expanded="false" />
-            <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
-            <element signature="e#17297#18604#0" expanded="true" />
-            <element signature="e#18603#18604#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="method#isExists#0;class#NewsCatch#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NewsCatch.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="421">
+            <caret line="363" column="14" lean-forward="false" selection-start-line="363" selection-start-column="14" selection-end-line="363" selection-end-column="14" />
+            <folding>
+              <marker date="1500868768000" expanded="true" signature="136:200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="254:292" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="385:569" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="433:567" ph="{&quot;user_id&quot;: &quot;zhizhonghwang@gmail.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="606:645" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="731:814" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="842:881" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="970:1009" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1302" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1100:1303" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1148:1300" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1301:1302" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1315:1499" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="1345:1497" ph="{&quot;user_id&quot;: &quot;1141408077@qq.com&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1586:1686" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1708:1941" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="1753:1939" ph="{&quot;user_id&quot;: &quot;&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="1968:2004" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2092:2162" ph="{&quot;post_id&quot;: &quot;ijejlglmslisdaybdgujhcjusdnwoe&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2175:3411" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="2227:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="2237:2620" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="2630:3014" ph="{&quot;post_id&quot;: &quot;22&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3403" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="3392:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3406:3409" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="3546:3616" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="3688:4178" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="3737:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4160:4170" ph="{&quot;post_id&quot;: &quot;121286547261451&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4160:4176" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4233:4274" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="4368:4450" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="4472:6766" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="4531:6764" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="4732:6623" ph="[...]" />
+              <marker date="1500868768000" expanded="true" signature="4746:5092" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5106:5448" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="5462:6033" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6047:6613" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6843:6922" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+              <marker date="1500868768000" expanded="true" signature="6943:6982" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7000:7037" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7117:7200" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7286:7330" ph="{&quot;isOk&quot;: false...}" />
+              <marker date="1500868768000" expanded="true" signature="7349:7386" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7503:7657" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7706" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7704:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7706:7798" ph="{...}" />
+              <marker date="1500868768000" expanded="true" signature="7827:8045" ph="{&quot;isOk&quot;: true...}" />
+              <marker date="1500868768000" expanded="true" signature="7878:8043" ph="{&quot;post_id&quot;: &quot;11&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="48" lean-forward="false" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        <state relative-caret-position="155">
+          <caret line="406" column="34" lean-forward="false" selection-start-line="406" selection-start-column="34" selection-end-line="406" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#isExists#0;class#NewsCatch#0" expanded="false" />
-            <element signature="method#NewsCatching#0;class#NewsCatch#0" expanded="false" />
+            <element signature="e#707#1721#0" expanded="false" />
+            <element signature="e#1801#2759#0" expanded="false" />
+            <element signature="e#2840#4291#0" expanded="false" />
+            <element signature="e#4363#5922#0" expanded="false" />
+            <element signature="e#5957#7904#0" expanded="false" />
+            <element signature="e#7982#9567#0" expanded="false" />
+            <element signature="e#9648#13605#0" expanded="false" />
+            <element signature="e#13671#15007#0" expanded="false" />
+            <element signature="e#15075#16621#0" expanded="false" />
+            <element signature="method#enableCORS#0;class#Main#0" expanded="false" />
+            <element signature="docComment;method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="method#updateNews#0;class#Main#0" expanded="false" />
+            <element signature="e#19227#20953#0" expanded="true" />
+            <element signature="e#20952#20953#0" expanded="true" />
           </folding>
         </state>
       </provider>
