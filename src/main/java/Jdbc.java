@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,19 +17,9 @@ public class Jdbc {
     private Statement stmt=null;
 
     public static void main(String args[]){
-        Jdbc jdbc = new Jdbc();
-        //1.添加
-//        jdbc.save("insert into public.user values('111111', '张明','hzh19870110');");
-        //2.修改记录
-//        jdbc.edit("update public.user set username='林佳', password='123456' where id='111111'");
-        //3.查询结果集
-        ResultSet rs = jdbc.querydata("select * from public.user");
-
-        List<User> users = Functions.getUserList(rs);
-        System.out.println(users.size());
-
-        //4.删除记录
-//        jdbc.delete("delete from public.user where id='111111'");
+        Date date = new Date();
+//        String s = String.format("%tc", date);
+        System.out.println(date.toString());
     }
 
     public Jdbc(){

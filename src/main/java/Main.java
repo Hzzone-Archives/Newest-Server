@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import jdk.nashorn.internal.scripts.JD;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -126,7 +127,7 @@ public class Main {
                 Post post = new Post();
                 post.setContent(rs.getString("content"));
                 post.setPost_id(rs.getString("post_id"));
-                post.setTime(rs.getDate("time"));
+                post.setTime(rs.getString("time"));
                 post.setTitle(rs.getString("title"));
                 post.setAuthor_name(rs.getString("user_name"));
                 post.setAuthor_id(rs.getString("user_id"));
@@ -167,7 +168,7 @@ public class Main {
                 Post post = new Post();
                 post.setContent(rs.getString("content"));
                 post.setPost_id(rs.getString("post_id"));
-                post.setTime(rs.getDate("time"));
+                post.setTime(rs.getString("time"));
                 post.setTitle(rs.getString("title"));
                 post.setAuthor_name(rs.getString("user_name"));
                 post.setAuthor_id(rs.getString("user_id"));
@@ -198,7 +199,7 @@ public class Main {
             Post post = new Post();
             post.setContent(content);
             post.setTitle(title);
-            post.setTime(date);
+            post.setTime(date.toString());
             Jdbc jdbc = new Jdbc();
             while (true) {
                 String post_id = Functions.getRandomString(30);
@@ -218,7 +219,7 @@ public class Main {
                 }
             }
             Gson gson = new Gson();
-            String sql = String.format("insert into public.post values('%s', '%s', '%s', '%s', '%s')", post.getAuthor_id(), post.getPost_id(), post.getTitle(), post.getTime(), post.getContent());
+            String sql = String.format("insert into public.post values('%s', '%s', '%s', '%s', '%s')", post.getAuthor_id(), post.getPost_id(), post.getTitle(), post.getTime().toString(), post.getContent());
             Functions.log(sql);
             jdbc.save(sql);
             return "{\"isOk\":true, \"msg\":\"发表成功\", \"post\":"+gson.toJson(post)+"}";
@@ -230,7 +231,8 @@ public class Main {
         post("/post-details", (request, response) -> {
             String post_id = request.queryParams("post_id");
             String user_id = request.queryParams("user_id");
-            String sql = String.format("SELECT * FROM public.comment AS c WHERE c.post_id='%s'", post_id).toString();
+            String sql = String.format("SELECT * FROM public.comment AS c WHERE c.post_id='%s' order by time DESC", post_id).toString();
+            System.out.println(sql);
             Jdbc jdbc = new Jdbc();
             ResultSet rs = jdbc.querydata(sql);
             List<Comment> comments = new ArrayList<>();
@@ -239,15 +241,17 @@ public class Main {
                 Comment comment = new Comment();
                 comment.setPost_id(post_id);
                 comment.setContent(rs.getString("content"));
-                comment.setDate(rs.getDate("time"));
+                comment.setDate(rs.getString("time"));
                 String from_id = rs.getString("from_id");
                 comment.setFrom_id(from_id);
                 comment.setTo_comment_id(rs.getString("to_comment_id"));
                 comment.setComment_id(rs.getString("comment_id"));
                 String to_id = rs.getString("to_id");
+                System.out.println(to_id);
                 if (to_id!=null) {
                     comment.setTo_id(to_id);
                     sql = String.format("select * from public.user where user_id='%s'", to_id).toString();
+                    System.out.println(sql);
                     Jdbc jdbc1 = new Jdbc();
                     ResultSet rs1 = jdbc1.querydata(sql);
                     while (rs1.next()) {
@@ -262,30 +266,18 @@ public class Main {
                     comment.setFrom_name(rs2.getString("user_name"));
                     comment.setFrom_pic(rs2.getString("pic"));
                 }
-//                while (true){
-//                    String comment_id = Functions.getRandomString(30);
-//                    String temp = String.format("SELECT * FROM public.comment WHERE comment_id='%s'", comment_id);
-//                    Jdbc jdbc8 = new Jdbc();
-//                    ResultSet t = jdbc8.querydata(temp);
-//                    int i = 0;
-//                    while (t.next())
-//                        i++;
-//                    if (i==0) {
-//                        comment.setComment_id(comment_id);
-//                        break;
-//                    }
-//                }
                 comments.add(comment);
             }
             Post post = new Post();
             post.setComments(comments);
-            sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post WHERE post_id='%s' ORDER BY time DESC", post_id).toString();
+            sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked FROM public.user NATURAL JOIN public.post WHERE post_id='%s' ORDER BY time ASC", post_id).toString();
+            System.out.println(sql);
             Jdbc jdbc3 = new Jdbc();
             ResultSet rs3 = jdbc3.querydata(sql);
             while (rs3.next()){
                 post.setContent(rs3.getString("content"));
                 post.setPost_id(rs3.getString("post_id"));
-                post.setTime(rs3.getDate("time"));
+                post.setTime(rs3.getString("time"));
                 post.setTitle(rs3.getString("title"));
                 post.setAuthor_id(rs3.getString("user_id"));
                 post.setLiked(rs3.getInt("liked"));
@@ -405,8 +397,24 @@ public class Main {
             Comment comment = new Comment();
             comment.setPost_id(post_id);
             comment.setFrom_id(from_id);
-            comment.setTo_id(to_id);
-            comment.setTo_comment_id(to_comment_id);
+            comment.setDate(new Date().toString());
+            if (to_comment_id!=null&&to_id!=null){
+                User user = new User();
+                user.setUser_id(to_id);
+                if (!user.isExists())
+                    return "user not exists";
+                comment.setTo_id(to_id);
+                String s = String.format("select * from public.user where user_id='%s'", to_id).toString();
+                System.out.println(s);
+                Jdbc jdbc1 = new Jdbc();
+                ResultSet rs1 = jdbc1.querydata(s);
+                while (rs1.next()) {
+                    comment.setTo_name(rs1.getString("user_name"));
+                    System.out.println(rs1.getString("user_name"));
+                    comment.setTo_pic(rs1.getString("pic"));
+                }
+                comment.setTo_comment_id(to_comment_id);
+            }
             comment.setContent(content);
             while (true){
                 comment_id = Functions.getRandomString(30);
@@ -421,12 +429,51 @@ public class Main {
                     break;
                 }
             }
-            String sql = String.format("INSERT INTO public.comment(post_id, from_id, to_id, content, time, comment_id, to_comment_id) VALUES('%s', '%s', '%s', '%s', '%tF', '%s', '%s')",
-                    post_id, from_id, comment.getTo_comment_id(), content, new Date(), comment_id, comment.getTo_comment_id()).toString();
+            String sql = String.format("INSERT INTO public.comment(post_id, from_id, to_id, content, time, comment_id, to_comment_id) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+                    post_id, from_id, comment.getTo_id(), content, new Date().toString(), comment_id, comment.getTo_comment_id()).toString();
             Jdbc jdbc = new Jdbc();
             jdbc.save(sql);
             Gson gson = new Gson();
             return String.format("{\"isOk\": true, \"msg\": \"评论成功\", \"comment\": %s}", gson.toJson(comment));
+        });
+
+        /**
+         * at 我的
+         */
+        post("/atme", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            String password = request.queryParams("password");
+            User user = new User();
+            user.setUser_id(user_id);
+            if (!user.isExists())
+                return "user not exists";
+            user = user.getUser();
+            if (!user.getPassword().equals(password))
+                return "password incorrect";
+            String sql = String.format("select * from public.comment where to_id='%s' order by time DESC", user_id).toString();
+            System.out.println(sql);
+            Jdbc jdbc = new Jdbc();
+            ResultSet rs = jdbc.querydata(sql);
+            List<Comment> comments = new ArrayList<>();
+            while (rs.next()){
+                Comment comment = new Comment();
+                comment.setComment_id(rs.getString("comment_id"));
+                comment.setPost_id(rs.getString("post_id"));
+                comment.setContent(rs.getString("content"));
+                comment.setDate(rs.getString("time"));
+                String from_id = rs.getString("from_id");
+                comment.setFrom_id(from_id);
+                sql = String.format("select * from public.user where user_id='%s'", from_id).toString();
+                Jdbc jdbc1 = new Jdbc();
+                ResultSet rs1 = jdbc1.querydata(sql);
+                while (rs1.next()) {
+                    comment.setFrom_name(rs1.getString("user_name"));
+                    comment.setFrom_pic(rs1.getString("pic"));
+                }
+                comments.add(comment);
+            }
+            Gson gson = new Gson();
+            return String.format("{\"isOk\": true, \"msg\": \"成功\", \"atme\":%s}", gson.toJson(comments)).toString();
         });
 
     }
@@ -472,10 +519,10 @@ public class Main {
                         pic = element2.attr("src");
                         System.out.println(pic);
                         doc.select("div.topic").remove();
-                        Date date = new SimpleDateFormat("yyyy年MM月dd日").parse(element.getDate());
+//                        Date date = new SimpleDateFormat("yyyy年MM月dd日").parse(element.getDate());
                         String sql = String.format("SELECT * FROM public.post WHERE post_id='%s'", element.getUrl_address()).toString();
-                        String save = String.format("INSERT INTO public.post(post_id, user_id, time, title, content, category, source) VALUES('%s', '%s','%tF', '%s', '%s', '%s', '%s')",
-                                element.getUrl_address().replaceAll("'", "''"), (element.getSource()+"@gmail.com").replaceAll("'", "''"), date, element.getTitle().replaceAll("'", "''"), doc.body().html().replaceAll("'", "''"), element.getCatagory().replaceAll("'", "''"), element.getSource().replaceAll("'", "''")
+                        String save = String.format("INSERT INTO public.post(post_id, user_id, time, title, content, category, source) VALUES('%s', '%s','%s', '%s', '%s', '%s', '%s')",
+                                element.getUrl_address().replaceAll("'", "''"), (element.getSource()+"@gmail.com").replaceAll("'", "''"), new Date().toString(), element.getTitle().replaceAll("'", "''"), doc.body().html().replaceAll("'", "''"), element.getCatagory().replaceAll("'", "''"), element.getSource().replaceAll("'", "''")
                         ).toString();
                         Jdbc jdbc10 = new Jdbc();
                         String s1 = element.getSource()+"@gmail.com";
@@ -503,8 +550,6 @@ public class Main {
                     e.printStackTrace();
                 } catch (SQLException e){
                     e.printStackTrace();
-                } catch (ParseException e){
-                    e.getErrorOffset();
                 }
             }
         }, delay, cacheTime);

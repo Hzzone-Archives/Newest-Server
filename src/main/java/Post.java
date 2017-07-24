@@ -13,7 +13,7 @@ public class Post {
     private String author_id;
     private String title;
     private String content;
-    private Date time;
+    private String time;
     private List<Comment> comments = null;
     private String author_pic;
     private String source = null;
@@ -87,7 +87,7 @@ public class Post {
     }
 
 
-    public static Post getPost(String post_id, String author_name, String author_id, String title, String content, Date time){
+    public static Post getPost(String post_id, String author_name, String author_id, String title, String content, String time){
         Post post = new Post();
         post.setAuthor_id(author_id);
         post.setAuthor_name(author_name);
@@ -137,26 +137,12 @@ public class Post {
         this.content = content;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
-
-//    public static void main(String[] args){
-//        Date date = new Date();
-//        System.out.println(date.toString());
-//        Post post1 = Post.getPost("aa", "aaa", "aaa", "aaaa", "aaa", new Date());
-//        Post post2 = Post.getPost("aa", "aaa", "aaa", "aaaa", "aaa", new Date());
-//        List<Post> posts = new ArrayList<>();
-//        posts.add(post1);
-//        posts.add(post2);
-//        Gson gson = new Gson();
-//        String s = gson.toJson(posts);
-//        System.out.println(s);
-
-//    }
 
 }

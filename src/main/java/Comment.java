@@ -8,7 +8,7 @@ public class Comment {
     private String from_id = null;
     private String to_id = null ;
     private String content = null;
-    private Date date = null;
+    private String date = null;
 
     public String getComment_id() {
         return comment_id;
@@ -99,11 +99,11 @@ public class Comment {
         this.content = content;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

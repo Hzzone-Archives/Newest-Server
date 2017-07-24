@@ -22,7 +22,7 @@ public class Test {
                 Comment comment = new Comment();
                 comment.setPost_id(post_id);
                 comment.setContent(rs.getString("content"));
-                comment.setDate(rs.getDate("time"));
+                comment.setDate(rs.getString("time"));
                 String from_id = rs.getString("from_id");
                 comment.setFrom_id(from_id);
                 String to_id = rs.getString("to_id");

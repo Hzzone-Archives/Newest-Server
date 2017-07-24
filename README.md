@@ -362,14 +362,71 @@ it will return:
     "isOk":true,
     "msg":"评论成功",
     "comment":{
-        "post_id":"11",
+        "post_id":"http://www.cnbeta.com/articles/tech/634635.htm",
         "from_id":"zhizhonghwang@gmail.com",
-        "content":"hahahahahahha",
-        "comment_id":"yglgwyijjhgjqjwyqllakrmrghnddl"
+        "to_id":"731275785@qq.com",
+        "content":"测试一下一级评论",
+        "date":"Mon Jul 24 20:08:37 CST 2017",
+        "comment_id":"jjokdodjoyeywgsjefnawllliiqgqj",
+        "to_comment_id":"vquxghwgzqrdhmdyemgxwakqqdarue",
+        "to_name":"Aliwee",
+        "to_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
     }
 }
 ```
-
+#### at me
+```/atme```
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com",
+  "password": "1111"
+}
+```
+return
+```json
+{
+    "isOk":true,
+    "msg":"成功",
+    "atme":[
+        {
+            "post_id":"http://www.cnbeta.com/articles/tech/634635.htm",
+            "from_id":"731275785@qq.com",
+            "content":"车速度传输哈哈",
+            "date":"Mon Jul 24 20:45:24 CST 2017",
+            "comment_id":"wzjyqhxedqmpalslzhfrrqzvgqhxaj",
+            "from_name":"Aliwee",
+            "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+        },
+        {
+            "post_id":"http://www.cnbeta.com/articles/tech/634635.htm",
+            "from_id":"731275785@qq.com",
+            "content":"4567",
+            "date":"Mon Jul 24 20:19:09 CST 2017",
+            "comment_id":"aaradeiduuddseulpwftlwlfyselun",
+            "from_name":"Aliwee",
+            "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+        },
+        {
+            "post_id":"http://www.cnbeta.com/articles/tech/634635.htm",
+            "from_id":"731275785@qq.com",
+            "content":"2",
+            "date":"Mon Jul 24 20:18:13 CST 2017",
+            "comment_id":"szaklkdzyifmddyxujadfylytsyvij",
+            "from_name":"Aliwee",
+            "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+        },
+        {
+            "post_id":"http://www.cnbeta.com/articles/tech/634635.htm",
+            "from_id":"zhizhonghwang@gmail.com",
+            "content":"测试一下一级评论",
+            "date":"Mon Jul 24 20:14:34 CST 2017",
+            "comment_id":"waaqaljidguzagwkywlvllbsyeeijh",
+            "from_name":"Hzzone",
+            "from_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg"
+        }
+    ]
+}
+```
 #### My comments
 
 
