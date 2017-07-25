@@ -10,6 +10,16 @@ public class Comment {
     private String content = null;
     private String date = null;
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    private String category = null;
+
     public String getTitle() {
         return title;
     }

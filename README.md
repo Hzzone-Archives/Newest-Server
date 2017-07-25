@@ -473,6 +473,19 @@ return
     }
 }
 ````
+#### get code
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com"
+}
+```
+returns:
+```json
+{
+  "isOk": true, 
+  "msg": "644966"
+}
+```
 #### My comments
 
 

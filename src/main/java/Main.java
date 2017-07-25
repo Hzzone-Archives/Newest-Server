@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-import jdk.nashorn.internal.scripts.JD;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,9 +12,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
+import org.commonmark.node.*;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 
 import static spark.Spark.*;
 
@@ -194,6 +194,10 @@ public class Main {
         post("/make-new-post", ((((request, response) -> {
             String title = request.queryParams("title");
             String content = request.queryParams("content");
+            Parser parser = Parser.builder().build();
+            Node document = parser.parse(content);
+            HtmlRenderer renderer = HtmlRenderer.builder().build();
+            content = renderer.render(document);  // "<p>This is <em>Sparta</em></p>\n"
             String user_id = request.queryParams("user_id");
             if (title==null||content==null||user_id==null)
                 return "empty value";
@@ -462,8 +466,10 @@ public class Main {
                 System.out.println(s);
                 Jdbc jdbc12 = new Jdbc();
                 ResultSet rs12 = jdbc12.querydata(s);
-                while (rs12.next())
+                while (rs12.next()){
+                    comment.setCategory(rs12.getString("category"));
                     comment.setTitle(rs12.getString("title"));
+                }
                 comment.setContent(rs.getString("content"));
                 comment.setDate(rs.getString("time"));
                 String from_id = rs.getString("from_id");
@@ -482,10 +488,13 @@ public class Main {
         });
 
         /**
-         * 我的评论
+         * 我的喜欢
          */
         post("/my-like", (request, response) -> {
             String user_id = request.queryParams("user_id");
+            String sql = String.format("SELECT * FROM public.post JOIN public.liked using(post_id) WHERE liked.user_id='%s'", user_id);
+            Jdbc jdbc = new Jdbc();
+//            ResultSet rs =
             return "hello world";
         });
 
@@ -542,6 +551,16 @@ public class Main {
             user = user.getUser();
             Gson gson = new Gson();
             return String.format("{\"isOk\": true, \"msg\": \"修改成功\", \"user\": %s}", gson.toJson(user)).toString();
+        });
+
+        /**
+         * 发送验证码
+         */
+        post("/verify", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            String code = Functions.getRandomString(6);
+            Functions.sendEmail("验证邮件", code, user_id);
+            return "{\"isOk\": true, \"msg\": \""+code+"\"}";
         });
     }
 
