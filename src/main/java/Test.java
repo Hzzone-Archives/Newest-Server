@@ -1,52 +1,53 @@
 import com.google.gson.Gson;
-import jdk.nashorn.internal.scripts.JD;
+import com.qiniu.common.QiniuException;
+import com.qiniu.http.Response;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.common.Zone;
+import com.qiniu.storage.Configuration;
+import com.qiniu.storage.model.DefaultPutRet;
+import com.qiniu.util.Auth;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 
 /**
  * Created by Hzzone on 2017/7/22.
  */
 public class Test {
-    public static void main(String[] args){
-        String post_id = "11";
-        String sql = String.format("SELECT * FROM public.comment AS c WHERE c.post_id='%s'", post_id).toString();
-        Jdbc jdbc = new Jdbc();
-        ResultSet rs = jdbc.querydata(sql);
-        List<Comment> comments = new ArrayList<>();
-        Gson gson = new Gson();
+    public static void main(String[] args) {
+        InputStream is = null;
         try {
-            while (rs.next()) {
-                Comment comment = new Comment();
-                comment.setPost_id(post_id);
-                comment.setContent(rs.getString("content"));
-                comment.setDate(rs.getString("time"));
-                String from_id = rs.getString("from_id");
-                comment.setFrom_id(from_id);
-                String to_id = rs.getString("to_id");
-                if (to_id != null) {
-                    comment.setTo_id(to_id);
-                    System.out.println(sql);
-                    ResultSet rs1 = jdbc.querydata(sql);
-                    while (rs1.next()) {
-                        comment.setTo_name(rs1.getString("to_name"));
-                        comment.setTo_pic(rs1.getString("to_pic"));
-                    }
-                }
-                sql = String.format("select * from public.user where user_id='%s'", from_id);
-                Jdbc jdbc1 = new Jdbc();
-                ResultSet rs2 = jdbc1.querydata(sql);
-                while (rs2.next()) {
-                    comment.setFrom_name(rs2.getString("user_name"));
-                    comment.setFrom_pic(rs2.getString("pic"));
-                }
-                comments.add(comment);
-                System.out.println(gson.toJson(comment));
-            }
-        }catch (SQLException e){
+            is = new FileInputStream(new File("/Users/HZzone/Desktop/test.png"));
+
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+        //构造一个带指定Zone对象的配置类
+        Configuration cfg = new Configuration(Zone.zone0());
+        //...其他参数参考类注释
+        UploadManager uploadManager = new UploadManager(cfg);
+        //...生成上传凭证，然后准备上传
+        String accessKey = "vuQFyN34wj9OjD3P_iy4vUsJVSE_VaaOOf0damQ4";
+        String secretKey = "2TfV9P_Jz4Wj415OaN4ErAADskCA0U-WBiFP52VW";
+        String bucket = "zhizhonghwang-pic";
+        //默认不指定key的情况下，以文件内容的hash值作为文件名
+        String key = null;
+        try {
+            Auth auth = Auth.create(accessKey, secretKey);
+            String upToken = auth.uploadToken(bucket);
+            Response response = uploadManager.put(is, key, upToken, null, null);
+            //解析上传成功的结果
+            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+            System.out.println(response.bodyString());
+            System.out.println(putRet.key);
+            System.out.println(putRet.hash);
+        } catch (QiniuException ex) {
+            Response r = ex.response;
+            System.err.println(r.toString());
+            try {
+                System.err.println(r.bodyString());
+            } catch (QiniuException ex2) {
+                //ignore
+            }
         }
     }
 }

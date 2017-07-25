@@ -10,6 +10,16 @@ public class Comment {
     private String content = null;
     private String date = null;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    private String title = null;
+
     public String getComment_id() {
         return comment_id;
     }

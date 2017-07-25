@@ -8,7 +8,9 @@ import spark.Filter;
 import spark.Request;
 import spark.Response;
 
+import javax.servlet.MultipartConfigElement;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -454,7 +456,14 @@ public class Main {
             while (rs.next()){
                 Comment comment = new Comment();
                 comment.setComment_id(rs.getString("comment_id"));
-                comment.setPost_id(rs.getString("post_id"));
+                String post_id = rs.getString("post_id");
+                comment.setPost_id(post_id);
+                String s = String.format("select * from public.post where post_id='%s'", post_id).toString();
+                System.out.println(s);
+                Jdbc jdbc12 = new Jdbc();
+                ResultSet rs12 = jdbc12.querydata(s);
+                while (rs12.next())
+                    comment.setTitle(rs12.getString("title"));
                 comment.setContent(rs.getString("content"));
                 comment.setDate(rs.getString("time"));
                 String from_id = rs.getString("from_id");
@@ -469,7 +478,7 @@ public class Main {
                 comments.add(comment);
             }
             Gson gson = new Gson();
-            return String.format("{\"isOk\": true, \"msg\": \"成功\", \"atme\":%s}", gson.toJson(comments)).toString();
+            return String.format("{\"isOk\": true, \"msg\": \"成功\",  \"atme\":%s}", gson.toJson(comments)).toString();
         });
 
         /**
@@ -502,6 +511,38 @@ public class Main {
             return String.format("{\"isOk\": true, \"msg\": \"修改成功\", \"user\": %s}", gson.toJson(user));
         });
 
+        /**
+         * 修改用户头像
+         */
+        post("/change-pic", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
+            InputStream is = request.raw().getPart("uploaded_file").getInputStream();
+            String link = Functions.upload(is);
+            String sql = String.format("update public.user set pic='%s' where user_id='%s'", link, user_id);
+            Jdbc jdbc = new Jdbc();
+            jdbc.edit(sql);
+            User user = new User();
+            user.setUser_id(user_id);
+            Gson gson = new Gson();
+            return String.format("\"{isOk\": true, \"msg\": \"上传成功\", %s}", gson.toJson(user));
+        });
+
+        /**
+         * 修改密码
+         */
+        post("/change-password", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            String new_password = request.queryParams("new_password");
+            Jdbc jdbc = new Jdbc();
+            String sql = String.format("UPDATE public.user set password='%s' WHERE user_id='%s'", new_password, user_id);
+            jdbc.edit(sql);
+            User user = new User();
+            user.setUser_id(user_id);
+            user = user.getUser();
+            Gson gson = new Gson();
+            return String.format("{\"isOk\": true, \"msg\": \"修改成功\", \"user\": %s}", gson.toJson(user)).toString();
+        });
     }
 
     private static void log(String s){
