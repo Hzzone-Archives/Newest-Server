@@ -494,8 +494,21 @@ public class Main {
             String user_id = request.queryParams("user_id");
             String sql = String.format("SELECT * FROM public.post JOIN public.liked using(post_id) WHERE liked.user_id='%s'", user_id);
             Jdbc jdbc = new Jdbc();
-//            ResultSet rs =
-            return "hello world";
+            ResultSet rs = jdbc.querydata(sql);
+            List<Post> posts = new ArrayList<>();
+            while (rs.next()){
+                Post post = new Post();
+                post.setPost_id(rs.getString("post_id"));
+                post.setTime(rs.getString("time"));
+                post.setTitle(rs.getString("title"));
+                post.setContent(rs.getString("content"));
+                post.setLiked(rs.getInt("liked"));
+                post.setCategory(rs.getString("category"));
+                post.setSource(rs.getString("source"));
+                posts.add(post);
+            }
+            Gson gson = new Gson();
+            return String.format("{\"isOk\": true, \"msg\": \"成功\", \"posts\": %s}", gson.toJson(posts));
         });
 
         /**
