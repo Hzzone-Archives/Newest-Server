@@ -456,7 +456,6 @@ return
 ```json
 {
   "user_id": "zhizhonghwang@gmail.com",
-  "password": "1111",
   "new_password": "Hzzone"
 }
 ```
@@ -523,6 +522,16 @@ return:
     ]
 }
 ```
+
+#### Change Pic
+base64 String to ```/change-pic```
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com", 
+  "pic": "....."
+}
+```
+returns user data
 
 #### My likes
 

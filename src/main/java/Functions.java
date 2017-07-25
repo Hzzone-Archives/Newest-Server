@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -111,12 +108,6 @@ public class Functions {
      * 上传图片到七牛云
      */
     public static String upload(InputStream is){
-        try {
-            is = new FileInputStream(new File("/Users/HZzone/Desktop/test.png"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         //构造一个带指定Zone对象的配置类
         Configuration cfg = new Configuration(Zone.zone0());
         //...其他参数参考类注释

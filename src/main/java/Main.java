@@ -7,12 +7,11 @@ import spark.Filter;
 import spark.Request;
 import spark.Response;
 
-import javax.servlet.MultipartConfigElement;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+
 import org.commonmark.node.*;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -538,14 +537,19 @@ public class Main {
          */
         post("/change-pic", (request, response) -> {
             String user_id = request.queryParams("user_id");
-            request.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
-            InputStream is = request.raw().getPart("uploaded_file").getInputStream();
+            String pic = request.queryParams("pic");
+            if (pic == null) //图像数据为空
+                return "invalid pic";
+            pic = pic.replaceAll("data:image/(.*);base64", "");
+            byte[] buffer = com.qiniu.util.Base64.decode(pic, com.qiniu.util.Base64.DEFAULT);
+            InputStream is = new ByteArrayInputStream(buffer);
             String link = Functions.upload(is);
             String sql = String.format("update public.user set pic='%s' where user_id='%s'", link, user_id);
             Jdbc jdbc = new Jdbc();
             jdbc.edit(sql);
             User user = new User();
             user.setUser_id(user_id);
+            user = user.getUser();
             Gson gson = new Gson();
             return String.format("\"{isOk\": true, \"msg\": \"上传成功\", %s}", gson.toJson(user));
         });
@@ -571,9 +575,20 @@ public class Main {
          */
         post("/verify", (request, response) -> {
             String user_id = request.queryParams("user_id");
+            System.out.println(user_id);
             String code = Functions.getRandomString(6);
+            System.out.println(code);
             Functions.sendEmail("验证邮件", code, user_id);
             return "{\"isOk\": true, \"msg\": \""+code+"\"}";
+        });
+
+        /**
+         * 搜索
+         */
+        post("/search", (request, response) -> {
+            String keyword = request.queryParams("keyword");
+//            String sql = String.format("");
+            return "hello world";
         });
     }
 
