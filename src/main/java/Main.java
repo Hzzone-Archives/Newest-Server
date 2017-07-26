@@ -494,19 +494,32 @@ public class Main {
          */
         post("/my-like", (request, response) -> {
             String user_id = request.queryParams("user_id");
-            String sql = String.format("SELECT * FROM public.post JOIN public.liked using(post_id) WHERE liked.user_id='%s'", user_id);
+            String sql = String.format("SELECT post.user_id, title, post_id, time, content, liked, category, source FROM public.post JOIN public.liked using(post_id) WHERE liked.user_id='%s'", user_id);
+            if (user_id==null){
+                return "empty_value";
+            }
+            System.out.println(user_id);
             Jdbc jdbc = new Jdbc();
             ResultSet rs = jdbc.querydata(sql);
             List<Post> posts = new ArrayList<>();
             while (rs.next()){
                 Post post = new Post();
-                post.setPost_id(rs.getString("post_id"));
+                String post_id = rs.getString("post_id");
+                post.setPost_id(post_id);
                 post.setTime(rs.getString("time"));
                 post.setTitle(rs.getString("title"));
                 post.setContent(rs.getString("content"));
                 post.setLiked(rs.getInt("liked"));
                 post.setCategory(rs.getString("category"));
                 post.setSource(rs.getString("source"));
+                post.setLiked(true);
+                String author_id = rs.getString("user_id");
+                System.out.println(rs.getString("user_id"));
+                User user = new User();
+                user.setUser_id(author_id);
+                user = user.getUser();
+                post.setAuthor_name(user.getUser_name());
+                post.setAuthor_pic(user.getPic());
                 posts.add(post);
             }
             Gson gson = new Gson();
@@ -592,8 +605,29 @@ public class Main {
          */
         post("/search", (request, response) -> {
             String keyword = request.queryParams("keyword");
-//            String sql = String.format("");
-            return "hello world";
+            System.out.println(keyword);
+            String sql = String.format("SELECT * FROM public.post WHERE title LIKE '%%%s%%' OR content LIKE '%%%s%%'", keyword, keyword).toString();
+            System.out.println(sql);
+            Jdbc jdbc = new Jdbc();
+            ResultSet rs = jdbc.querydata(sql);
+            List<Post> posts = new ArrayList<>();
+            Gson gson = new Gson();
+            while (rs.next()){
+                Post post = new Post();
+                post.setContent(rs.getString("content"));
+                post.setPost_id(rs.getString("post_id"));
+                post.setTime(rs.getString("time"));
+                post.setTitle(rs.getString("title"));
+                post.setAuthor_id(rs.getString("user_id"));
+                post.setLiked(rs.getInt("liked"));
+                post.setCategory(rs.getString("category"));
+                post.setSource(rs.getString("source"));
+                posts.add(post);
+            }
+            return String.format("{"+
+                    "\"isOk\": true,"+
+                    "\"msg\": \"获取成功\","+
+                    "\"posts\": %s}", gson.toJson(posts)).toString();
         });
 
         /**
@@ -602,7 +636,7 @@ public class Main {
 
         post("/my-post", (request, response) -> {
             String user_id = request.queryParams("user_id");
-            String sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked, source, category FROM public.user NATURAL JOIN public.post WHERE category='%s' ORDER BY time DESC", "新鲜事").toString();
+            String sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked, source, category FROM public.user NATURAL JOIN public.post WHERE category='%s' and user_id='%s' ORDER BY time DESC", "新鲜事", user_id).toString();
             Jdbc jdbc = new Jdbc();
             ResultSet rs = jdbc.querydata(sql);
             List<Post> posts = new ArrayList<>();
