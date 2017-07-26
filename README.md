@@ -533,5 +533,188 @@ base64 String to ```/change-pic```
 ```
 returns user data
 
-#### My likes
+#### My post
+```json
+{
+  "user_id": "zhizhonghwang@gmail.com"
+}
+```
+
+```json
+{
+    "isOk":true,
+    "msg":"获取成功",
+    "posts":[
+        {
+            "post_id":"ymlsxmydesgypavceaxgcuwxylqeei",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"李晶怡哈哈哈哈哈哈",
+            "content":"<p><img src="http://omoitwcai.bkt.clouddn.com/2017-07-18-IMG_0785-1.PNG" alt="" /> <strong><em>hahahahaha</em></strong></p> <h4>test</h4> ",
+            "time":"Tue Jul 25 14:51:31 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"nxjykbiaysddjjgdaghdivszgoaalm",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"xixixixix",
+            "content":"<p>content</p> ",
+            "time":"Tue Jul 25 14:50:28 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"zyryoadzwsygqypaluzwaulzdwihaj",
+            "author_name":"铜角大王",
+            "author_id":"627055459@qq.com",
+            "title":"666",
+            "content":"测试",
+            "time":"Tue Jul 25 10:06:16 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"qdwjgwbetjddexjyjligaadibseygs",
+            "author_name":"铜角大王",
+            "author_id":"627055459@qq.com",
+            "title":"666",
+            "content":"测试",
+            "time":"Tue Jul 25 10:06:16 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"gdzddmwdhluzsdquzgndqmqycaynia",
+            "author_name":"铜角大王",
+            "author_id":"627055459@qq.com",
+            "title":"666",
+            "content":"测试",
+            "time":"Tue Jul 25 10:06:16 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/2017-07-21-%E9%BB%98%E8%AE%A4.jpg",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"uuguwzapzyylihvjzleyjdyjbluehj",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"哈哈哈哈哈",
+            "content":"哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈",
+            "time":"Mon Jul 24 22:48:28 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"mwryyqklsflheqsfbspyqjajlmkwsu",
+            "author_name":"Aliwee",
+            "author_id":"731275785@qq.com",
+            "title":"思考使我快乐",
+            "content":"今天天气真好",
+            "time":"Mon Jul 24 21:37:58 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/FhL_2-WuvNqSjdp7thXknwfZC3hT",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":true,
+            "liked":1
+        },
+        {
+            "post_id":"usayjxdnspodfdputdqduiyueqjsij",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"测试发表",
+            "content":"测试一下一级评论",
+            "time":"Mon Jul 24 21:36:55 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"jeygzggllhvndxwmdgdslovoyudsyz",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"测试发表",
+            "content":"测试一下一级评论",
+            "time":"Mon Jul 24 21:34:49 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"asdfvcsdae",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"4",
+            "content":"日期类型用java.sql.Date，时间类型用java.sql.Time，日期/时间类型用java.sql.Timestamp； 这里举个例子：假设要从oracle中获取系统时间，需要执行sql：select sysdate from dual，然后在通过ResultSet获取查询结果时，一定要调用方法：getTimestamp()，这样才可以把年月日时分秒都取出来，调用getDate()只能取出年月日，调用getTime()只能取出时分秒。 ",
+            "time":"Mon Jul 24 18:54:49 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"fadbgxvdvsdf",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"3",
+            "content":"日期类型用java.sql.Date，时间类型用java.sql.Time，日期/时间类型用java.sql.Timestamp； 这里举个例子：假设要从oracle中获取系统时间，需要执行sql：select sysdate from dual，然后在通过ResultSet获取查询结果时，一定要调用方法：getTimestamp()，这样才可以把年月日时分秒都取出来，调用getDate()只能取出年月日，调用getTime()只能取出时分秒。 ",
+            "time":"Mon Jul 24 18:53:49 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"asdasdas",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"2",
+            "content":"日期类型用java.sql.Date，时间类型用java.sql.Time，日期/时间类型用java.sql.Timestamp； 这里举个例子：假设要从oracle中获取系统时间，需要执行sql：select sysdate from dual，然后在通过ResultSet获取查询结果时，一定要调用方法：getTimestamp()，这样才可以把年月日时分秒都取出来，调用getDate()只能取出年月日，调用getTime()只能取出时分秒。 ",
+            "time":"Mon Jul 24 18:52:59 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        },
+        {
+            "post_id":"kasjdhkajshdxsa",
+            "author_name":"Hzzone",
+            "author_id":"zhizhonghwang@gmail.com",
+            "title":"1",
+            "content":"日期类型用java.sql.Date，时间类型用java.sql.Time，日期/时间类型用java.sql.Timestamp； 这里举个例子：假设要从oracle中获取系统时间，需要执行sql：select sysdate from dual，然后在通过ResultSet获取查询结果时，一定要调用方法：getTimestamp()，这样才可以把年月日时分秒都取出来，调用getDate()只能取出年月日，调用getTime()只能取出时分秒。 ",
+            "time":"Mon Jul 24 18:52:49 CST 2017",
+            "author_pic":"http://omoitwcai.bkt.clouddn.com/Fi7WT3WYkOrNwK9KhrsWJE4NNbtb",
+            "source":"Newest Tech",
+            "category":"新鲜事",
+            "isLiked":false,
+            "liked":0
+        }
+    ]
+}
+```
 

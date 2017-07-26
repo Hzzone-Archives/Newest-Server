@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import jdk.nashorn.internal.scripts.JD;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,12 +16,14 @@ import java.util.*;
 import org.commonmark.node.*;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
+import spark.Spark;
 
 import static spark.Spark.*;
 
 public class Main {
     public static void main(String[] args) {
-        updateNews();
+//        Spark.set
+//        updateNews();
         enableCORS("*", "*", "*");
 
         get("/hello", (request, response) -> "Hello World");
@@ -537,7 +540,9 @@ public class Main {
          */
         post("/change-pic", (request, response) -> {
             String user_id = request.queryParams("user_id");
+            System.out.println(user_id);
             String pic = request.queryParams("pic");
+            System.out.println(pic);
             if (pic == null) //图像数据为空
                 return "invalid pic";
             pic = pic.replaceAll("data:image/(.*);base64", "");
@@ -551,7 +556,7 @@ public class Main {
             user.setUser_id(user_id);
             user = user.getUser();
             Gson gson = new Gson();
-            return String.format("\"{isOk\": true, \"msg\": \"上传成功\", %s}", gson.toJson(user));
+            return String.format("{\"isOk\": true, \"msg\": \"上传成功\", \"user\": %s}", gson.toJson(user));
         });
 
         /**
@@ -589,6 +594,38 @@ public class Main {
             String keyword = request.queryParams("keyword");
 //            String sql = String.format("");
             return "hello world";
+        });
+
+        /**
+         * 我的新鲜事
+         */
+
+        post("/my-post", (request, response) -> {
+            String user_id = request.queryParams("user_id");
+            String sql = String.format("SELECT user_id, user_name, pic, post_id, title, time, content, liked, source, category FROM public.user NATURAL JOIN public.post WHERE category='%s' ORDER BY time DESC", "新鲜事").toString();
+            Jdbc jdbc = new Jdbc();
+            ResultSet rs = jdbc.querydata(sql);
+            List<Post> posts = new ArrayList<>();
+            Gson gson = new Gson();
+            while (rs.next()){
+                Post post = new Post();
+                post.setContent(rs.getString("content"));
+                post.setPost_id(rs.getString("post_id"));
+                post.setTime(rs.getString("time"));
+                post.setTitle(rs.getString("title"));
+                post.setAuthor_name(rs.getString("user_name"));
+                post.setAuthor_id(rs.getString("user_id"));
+                post.setAuthor_pic(rs.getString("pic"));
+                post.setLiked(rs.getInt("liked"));
+                post.setLiked(post.isLiked(user_id));
+                post.setCategory(rs.getString("category"));
+                post.setSource(rs.getString("source"));
+                posts.add(post);
+            }
+            return String.format("{"+
+                    "\"isOk\": true,"+
+                    "\"msg\": \"获取成功\","+
+                    "\"posts\": %s}", gson.toJson(posts)).toString();
         });
     }
 
