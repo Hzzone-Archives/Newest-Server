@@ -1,6 +1,6 @@
-Mostly based on [Spark](https://github.com/perwendel/spark)(Not Apache Spark).   
-[Online demo](http://119.29.162.115:8080)
-Only ten days has been taken to do this, so there may some bugs inside.
+Mostly based on [Spark](https://github.com/perwendel/spark)(Not Apache Spark).     
+[Online demo](http://119.29.162.115:8080)   
+Only ten days has been taken to do this, so there may be some bugs inside.
 
 ### How to use
 #### login
