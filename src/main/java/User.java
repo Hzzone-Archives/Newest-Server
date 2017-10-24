@@ -48,7 +48,6 @@ public class User {
         String sql = "select * from public.user where user_id='"+this.getUser_id()+"'";
         Functions.log(sql);
         ResultSet rs = jdbc.querydata(sql);
-        Functions.log("hhh");
         Boolean value = false;
         List<User> users = new ArrayList<>();
         if (rs!=null) {

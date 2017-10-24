@@ -23,7 +23,7 @@ import static spark.Spark.*;
 public class Main {
     public static void main(String[] args) {
 //        Spark.set
-//        updateNews();
+        updateNews();
         enableCORS("*", "*", "*");
 
         get("/hello", (request, response) -> "Hello World");
@@ -32,7 +32,7 @@ public class Main {
             return "login page";
         });
 
-        post("/login", ((request, response) -> {
+        post("/login", (request, response) -> {
             String user_id = request.queryParams("user_id");
             String password = request.queryParams("password");
             log(user_id + " " + password);
@@ -41,6 +41,7 @@ public class Main {
             User user = new User();
             user.setPassword(password);
             user.setUser_id(user_id);
+            System.out.println(user.toString());
             if(user.isExists()) {
                 user = user.getUser();
                 if (password.equals(user.getPassword())){
@@ -53,7 +54,7 @@ public class Main {
             }
             else
                 return "{\"isOk\":false, \"msg\":\"用户不存在\"}";
-        }));
+        });
 
         /**
          * 注册1：发送验证码
@@ -193,7 +194,7 @@ public class Main {
         /**
          * 发表帖子
          */
-        post("/make-new-post", ((((request, response) -> {
+        post("/make-new-post", (request, response) -> {
             String title = request.queryParams("title");
             String content = request.queryParams("content");
             Parser parser = Parser.builder().build();
@@ -227,7 +228,7 @@ public class Main {
             Functions.log(sql);
             jdbc.save(sql);
             return "{\"isOk\":true, \"msg\":\"发表成功\", \"post\":"+gson.toJson(post)+"}";
-        }))));
+        });
 
         /**
          *获取帖子的详细内容

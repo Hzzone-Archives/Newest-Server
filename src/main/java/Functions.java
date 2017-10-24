@@ -38,6 +38,7 @@ public class Functions {
                 user.setPassword(rs.getString("password"));
                 user.setToken(rs.getString("token"));
                 user.setPic(rs.getString("pic"));
+                System.out.println(user.toString());
                 users.add(user);
             }
         } catch (SQLException e) {

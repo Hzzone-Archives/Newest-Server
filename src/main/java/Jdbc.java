@@ -34,11 +34,6 @@ public class Jdbc {
             // TODO Auto-generated catch block
             e2.printStackTrace();
         }
-        //2.建立数据库连接
-        //url:数据库连接地址:jdbc:固定写法，mysql:是数据库名称，localhost:域名,3306:数据库端口号
-        String url="jdbc:postgresql://119.29.162.115:5432/postgres";
-        String username="postgres";//数据库用户名
-        String password="19961125.";//数据库密码
         //获取到数据库连接字符串
 
         Connection conn=null;
@@ -60,8 +55,8 @@ public class Jdbc {
 
     public static Connection getConnection() throws Exception {
         Class.forName("org.postgresql.Driver");
-        String url = "jdbc:postgresql://119.29.162.115:5432/postgres";
-        return DriverManager.getConnection(url, "postgres", "19961125.");
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        return DriverManager.getConnection(url, "postgres", "");
     }
 
 

@@ -62,6 +62,6 @@
     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.qiniu:happy-dns-java:0.1.4" level="project" />
-    <orderEntry type="library" name="Maven: com.atlassian.commonmark:commonmark:0.9.0" level="project" />
+    <orderEntry type="library" name="Maven: com.atlassian.commonmark:commonmark:0.10.0" level="project" />
   </component>
 </module>
